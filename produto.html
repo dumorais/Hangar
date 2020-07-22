@@ -1,131 +1,191 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>Hangar 764</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    <head>
+        <title>Hangar 764</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
 
-<body>
-    <!-- Logo da Empresa -->
-    <div class="center">
-        <a href="index.html"><img class="" src="img/logo-hangar.png" width=50% alt="Hangar"></a>
-    </div>
-    <!-- Menu do Site -->
-
-    <nav class="navbar navbar-expand navbar-dark bg-dark ">
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="produto.html">Produtos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Quem somos</a>
-                </li>
-            </ul>
-            <a class="navbar-brand" href="#">
-                <img src="img/icon-carrinho.png" width="30" height="30" class="d-inline-block align-top">
-            </a>
-            <button class="btn btn-outline-secondary" type="submit">Login</button>
+    <body>
+        <!-- Logo da Empresa -->
+        <div class="center">
+            <a href="index.html"><img class="" src="img/logo-hangar.png" width=50% alt="Hangar"></a>
         </div>
-    </nav>
-    <br>
+        <!-- Menu do Site -->
 
-    <!-- Cardapio do Hangar -->
+        <nav class="navbar navbar-expand navbar-dark bg-dark ">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-12 bg-light py-4">
-                <button class="btn btn-secondary btn-sm btn-block mb-2" id="porcao" type="button" onclick="Porcao()">Porções e Lanches</button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="produto.html">Cardápio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="quem_somos.html">Quem somos</a>
+                    </li>
+                </ul>
+                <a class="navbar-brand" href="#">
+                    <img src="img/icon-carrinho.png" width="30" height="30" class="d-inline-block align-top">
+                </a>
+                <button class="btn btn-outline-secondary" type="submit">Login</button>
             </div>
-            <div class="col-md-6 col-12 bg-light py-4">
-                <button class="btn btn-secondary btn-sm btn-block mb-2" id="bebidas" type="button" onclick="Bebidas()">Bebidas</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-12 bg-light py-4">
-                <div id="card-porcao">
-                    <ul>
-                        <li>Aliche</li>
-                        <li>Alho e Óleo</li>
-                        <li>À moda da casa</li>
-                        <li>À moda do chef</li>
-                        <li>À moda Dom Cláudio</li>
-                        <li>Atum Especial</li>
-                        <li>Atum Sólido</li>
-                        <li>Bacon</li>
-                        <li>Baiacatu</li>
-                    </ul>
-                </div>
-                <div id="card-bebidas" style="visibility: hidden">
-                    <ul>
-                        <li>Baian</li>
-                        <li>Bauru</li>
-                        <li>Berinjela</li>
-                        <li>Brócolis</li>
-                        <li>Carne Seca</li>
-                        <li>Calacatu</li>
-                        <li>Calabresa</li>
-                        <li>Camarão</li>
-                        <li>Catupiry</li>
-                        <li>Canadense</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6 col-12 bg-light py-4 img">
-                <img src="#">
-                <p>descricao</p>
-                <button>comprar</button>
-            </div>
-        </div>
-    </div>
-    <br>
+        </nav>
+        <br>
 
-    <!-- Footer do Site -->
-
-    <footer class="bg-dark text-white">
-        <div class="container py-4">
+        <!-- Cardapio do Hangar -->
+        <div class="container">
             <div class="row">
-                <div class="col-md-4 col-6">
-                    <h3 class="h3 text-center">Contatos</h3>
-                    <ul class="list-unstyled text-secondary">
-                        <li>Email: Hangar@gmail.com</li>
-                        <li>Fone: 11 4564-3940</li>
-                        <li>De Seg. à Sex. das 8h às 18h</li>
-                    </ul>
+                <div class="btn-group py-4 col-md-6 col-12">
+                    <button type="button" class="btn btn-outline-success button id="porcao" onclick="Porcao()"">Hambúrgueres</button>
+                    <button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item btn-outline-success" id="porcao" onclick="Porcao()" >Hambúrgueres</a>
+                        <a class="dropdown-item btn-outline-success" href="#">Lanches</a>
+                        <a class="dropdown-item btn-outline-success" href="#">Porções</a>
+                    </div>
                 </div>
-                <div class="col-md-4 col-6 ">
-                    <h3 class="h3 text-center">Endereço</h3>
-                    <p class="text-secondary"> Av. Pres. Kennedy, 764 - Santa Paula, São Caetano do Sul - SP, 09570-000
-                    </p>
+                <div class="btn-group py-4 col-md-6 col-12">
+                    <button type="button" class="btn btn-outline-success button id="bebidas" onclick="Bebidas()"">Refrigerantes</button>
+                    <button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item btn-outline-success " id="bebidas" onclick="Bebidas()" >Refirgerante</a>
+                            <a class="dropdown-item btn-outline-success" href="#">Bebidas alcoólicas</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4 col-12 ">
-                    <h3 class="h3 text-center">Redes Sociais</h3>
-                    <ul class="list-unstyled">
-                        <li class="text-center"><a class="btn btn-outline-secondary btn-sm btn-block mb-2"
-                                href="https://www.facebook.com/hangar764">Facebook</a></li>
-                        <li><a class="btn btn-outline-secondary btn-sm btn-block mb-2"
-                                href="https://www.instagram.com/hangar764/">Instagram</a></li>
-                    </ul>
+                <!--<div class="dropdown py-4 col-md-6 col-12">
+<button class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Hambúrguers
+</button>
+<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+<a class="dropdown-item btn-outline-success" id="porcao" onclick="Porcao()" >Hambúrgueres</a>
+<a class="dropdown-item btn-outline-success" href="#">Lanches</a>
+<a class="dropdown-item btn-outline-success" href="#">Porções</a>
+</div>
+</div>
+<div class="dropdown py-4 col-md-6 col-12">
+<button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Refrigerante
+</button>
+<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+<a class="dropdown-item btn-outline-success " id="bebidas" onclick="Bebidas()" >Refirgerante</a>
+<a class="dropdown-item btn-outline-success" href="#">Bebidas alcoólicas</a>
+</div>
+</div>
+</div>
+<!--<div class="col-md-6 col-12  py-4">
+<button class="btn btn-outline-success btn-sm btn-block mb-2" id="porcao" type="button" onclick="Porcao()">Porções e Lanches</button>
+</div>
+<div class="col-md-6 col-12  py-4">
+<button class="btn btn-outline-success btn-sm btn-block mb-2" id="bebidas" type="button" onclick="Bebidas()">Bebidas</button>
+</div> -->
+            </div>
+
+            <div class="container">
+                <div class="row bg-white borda py-4" id="card-porcao" >
+
+                    <div class="col-md-6 col-12 text-center ">
+                        <img class="" src="img/lanche.jpg" alt="lache">
+                    </div> 
+                    <div class="col-md-6 col-12 ">
+
+                        <div class="col-md-6 text-center">
+                            <h3 class="text-center">X-Burguer</h3>
+                            <label class="">Hambúguer 100% carne, queijo e maionese artesanal servidos no pão rústico - <b>R$17</b></label>
+                            <br>
+                        </div>
+                        <div class="col-md-6 text-center py-3">
+                            <button class="btn btn-outline-danger tamanho" type="submit">-</button>
+                            <button class="btn btn-outline-success tamanho" type="submit">+</button>
+                            <label>0x</label>
+                            <br>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <button class="btn btn-secondary" type="submit">Excluir produto</button>
+                        </div>
+                    </div>
+
+
                 </div>
+                <div class="row bg-white borda py-4 " id="card-bebidas" style="display: none">
+
+                    <div class="col-md-6 col-12 text-center ">
+                        <img class="" src="img/coca.jpg" alt="lache">
+                    </div> 
+                    <div class="col-md-6 col-12">
+
+                        <div class="col-md-6 text-center">
+                            <h3 class="text-center">Coca-cola</h3>
+                            <label class="text-center">Coca-cola 350 ml normal - <b>R$6</b></label>
+                            <br>
+                        </div>
+                        <div class="col-md-6 text-center py-3">
+                            <button class="btn btn-outline-danger tamanho" type="submit">-</button>
+                            <button class="btn btn-outline-success tamanho" type="submit">+</button>
+                            <label>0x</label>
+                            <br>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <button class="btn btn-secondary" type="submit">Excluir produto</button>
+                        </div>
+                    </div>
+
+
+                </div>
+
             </div>
         </div>
-        <div class="bg-light text-dark text-center py-3">
-            <p class="mb-0">Hangar 764 © 2020. Alguns direitos reservados.</p>
-        </div>
-    </footer>
 
-    <script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/script.js""></script>
-</body>
+        <br>
+
+        <!-- Footer do Site -->
+
+        <footer class="bg-dark text-white">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-md-4 col-6">
+                        <h3 class="h3 text-center">Contatos</h3>
+                        <ul class="list-unstyled text-secondary">
+                            <li>Email: Hangar@gmail.com</li>
+                            <li>Fone: 11 4564-3940</li>
+                            <li>De Seg. à Sex. das 8h às 18h</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-6 ">
+                        <h3 class="h3 text-center">Endereço</h3>
+                        <p class="text-secondary"> Av. Pres. Kennedy, 764 - Santa Paula, São Caetano do Sul - SP, 09570-000
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-12 ">
+                        <h3 class="h3 text-center">Redes Sociais</h3>
+                        <ul class="list-unstyled">
+                            <li class="text-center"><a class="btn btn-outline-secondary btn-sm btn-block mb-2"
+                                                       href="https://www.facebook.com/hangar764">Facebook</a></li>
+                            <li><a class="btn btn-outline-secondary btn-sm btn-block mb-2"
+                                   href="https://www.instagram.com/hangar764/">Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-light text-dark text-center py-3">
+                <p class="mb-0">Hangar 764 © 2020. Alguns direitos reservados.</p>
+            </div>
+        </footer>
+
+        <script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
+        <script type="text/javascript" src="js/popper.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+    </body>
 
 </html>

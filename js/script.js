@@ -1,12 +1,14 @@
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip()
 });
 
 function Bebidas() {
-  document.getElementById("card-bebidas").style.visibility = "visible";
-  document.getElementById("card-porcao").style.visibility = "hidden";
+
+    $('#card-bebidas').show();
+    $('#card-porcao').hide();
 }
 function Porcao() {
-  document.getElementById("card-bebidas").style.visibility = "hidden";
-  document.getElementById("card-porcao").style.visibility = "visible";
+
+    $('#card-bebidas').hide();
+    $('#card-porcao').show();
 }
