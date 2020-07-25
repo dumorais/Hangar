@@ -10,7 +10,7 @@ body{
 }
 .carousel1{
     margin-top: 10px;
-    width: 50%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
 
@@ -66,4 +66,26 @@ body{
 }
 .button{
     width: 100%;
+}
+.Background{
+    background-image: url("../img/fundo.jpg");
+    height: 700px;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+    opacity: 0.6;
+    background-size: cover;
+    background-position: center;
+}
+.head{
+   
+    color: white;
+    text-shadow: 1px 1px 3px #000000;
+    font-family: "Times New Roman", " Times", " serif";
+    font-size: 120px;
+}
+.title{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
 }
