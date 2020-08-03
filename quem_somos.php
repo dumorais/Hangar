@@ -10,8 +10,11 @@
 
     <body>
         <!-- Logo da Empresa -->
-        <div class="center">
-            <a href="index.html"><img class="" src="img/logo-hangar.png"width=50% alt="Hangar"></a>
+        <div class="Background col-sm12">
+
+        </div>
+        <div class="w-100 px-4 text-center hangar" style="position: absolute; top: 20%; ">
+            <a class="head display-4 pb-3" href="index.php">Hangar 764</a>
         </div>
         <!-- Menu do Site -->
 
@@ -20,13 +23,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ">  
                     <li class="nav-item ">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="produto.html">Cardápio</a>
+                        <a class="nav-link" href="produto.php">Cardápio</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="quem_somos.html">Quem somos</a>
+                        <a class="nav-link" href="quem_somos.php">Quem somos</a>
                     </li>
                 </ul>
                 <a class="navbar-brand" href="#">

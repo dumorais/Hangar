@@ -10,8 +10,11 @@
 
     <body>
         <!-- Logo da Empresa -->
-        <div class="center">
-            <a href="index.html"><img class="" src="img/logo-hangar.png"width=50% alt="Hangar"></a>
+        <div class="Background col-sm12">
+
+        </div>
+        <div class="w-100 px-4 text-center hangar" style="position: absolute; top: 20%; ">
+            <a class="head display-4 pb-3" href="index.php"><span>Hangar 764</span></a>
         </div>
         <!-- Menu do Site -->
 
@@ -23,10 +26,10 @@
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="produto.html">Cardápio</a>
+                        <a class="nav-link" href="produto.php">Cardápio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="quem_somos.html">Quem somos</a>
+                        <a class="nav-link" href="quem_somos.php">Quem somos</a>
                     </li>
                 </ul>
                 <a class="navbar-brand" href="#">
@@ -36,6 +39,15 @@
             </div>
         </nav>
         <!-- Carrossel da Home -->
+        
+       
+        
+       <div class="title">
+            <div class="bg-success text-center borda ">
+                <h4 class="titulo py-1">Promoções</h4>
+            </div>
+        </div> 
+        
 
         <div id="carouselExampleIndicators" class="carousel slide carousel1" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -44,14 +56,29 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="img/hangar-foto1.jpg" class="d-block w-100" alt="...">
+
+                <div class="carousel-item  active">
+
+                    <div class="carousel-caption">
+                        <p>Peça um lache e o segundo sai com 50% de desconto! </p>
+                        <button class="carousel caption btn btn-light">Adicionar ao carrinho</button> 
+                    </div>
+
+                    <img src="img/lanche.jpg" class="d-block w-100 image" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/hangar-foto2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption">
+                        <p>Peça um lache e o segundo sai com 50% de desconto! </p>
+                        <button class="carousel caption btn btn-light">Adicionar ao carrinho</button> 
+                    </div>
+                    <img src="img/hangar-foto2.jpg" class="d-block w-100 image" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/hangar-foto3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption">
+                        <p>Peça um lache e o segundo sai com 50% de desconto! </p>
+                        <button class="carousel caption btn btn-light">Adicionar ao carrinho</button> 
+                    </div>
+                    <img src="img/hangar-foto3.jpg" class="d-block w-100 image" alt="...">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -67,25 +94,7 @@
 
         <!-- Container da Home -->
 
-        <div class="container">
-            <div class="row ">
-                <div class="col-md-6 col-12 bg-light py-4 ">
-                    <div class="">
-                        <div class="bg-success text-center borda ">
-                        <h4 class="titulo py-1">Promoções</h4>
-                        </div>
-                        <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elit odio, dapibus in pharetra vitae, ornare ac risus. Vivamus arcu nibh, porta eget viverra et, pharetra eget nibh. Donec nisl eros, rhoncus eget mauris a, aliquam congue dolor. Etiam eleifend ipsum at purus auctor porttitor. Aliquam erat volutpat. Quisque nisl elit, interdum non quam sed, ullamcorper volutpat ante. Vestibulum at suscipit odio. Maecenas in tincidunt dui. Quisque dignissim quam ac ante aliquet, et aliquet sem lacinia. Nulla mollis turpis eros, eget mattis magna luctus imperdiet. Vestibulum vulputate, diam vel semper pharetra, urna nunc ornare est, in tincidunt diam leo in tortor. Etiam ornare luctus sagittis.</label>
-                        <br>
-                        <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elit odio, dapibus in pharetra vitae, ornare ac risus. Vivamus arcu nibh, porta eget viverra et, pharetra eget nibh. Donec nisl eros, rhoncus eget mauris a, aliquam congue dolor. Etiam eleifend ipsum at purus auctor porttitor. Aliquam erat volutpat. Quisque nisl elit, interdum non quam sed, ullamcorper volutpat ante. Vestibulum at suscipit odio. Maecenas in tincidunt dui. Quisque dignissim quam ac ante aliquet, et aliquet sem lacinia. Nulla mollis turpis eros, eget mattis magna luctus imperdiet. Vestibulum vulputate, diam vel semper pharetra, urna nunc ornare est, in tincidunt diam leo in tortor. Etiam ornare luctus sagittis.</label>
-                    </div>
-                </div>
-                <div class="col-md-6 col-12 bg-light py-4 img">
-                    <img class="img" src="img/lanche.jpg" class="" alt="">
-                 
-                </div>
-            </div>
-        </div>
-        <br>
+
 
         <!-- Footer do Site -->
 
@@ -122,6 +131,8 @@
         <script type="text/javascript" src="js/popper.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
-    </body>
+
+    </body> 
+
 
 </html>

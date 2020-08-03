@@ -10,7 +10,7 @@ body{
 }
 .carousel1{
     margin-top: 10px;
-    width: 60%;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
 
@@ -69,23 +69,37 @@ body{
 }
 .Background{
     background-image: url("../img/fundo.jpg");
-    height: 700px;
+    height: 400px;
     background-repeat: no-repeat;
     margin-bottom: 10px;
     opacity: 0.6;
     background-size: cover;
     background-position: center;
+    margin: 7px 7px 7px 7px;
 }
 .head{
-   
-    color: white;
-    text-shadow: 1px 1px 3px #000000;
-    font-family: "Times New Roman", " Times", " serif";
-    font-size: 120px;
+ 
+    text-shadow: 2px 2px 4px #000000;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 100px;
+    color: #dbdddb;
+    cursor: pointer;
+    text-decoration: none !important;
+}
+.hangar a{
+ color: #dbdddb !important;
 }
 .title{
     width: 40%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
+}
+.image{
+    max-height: 500px;
+    min-height: 500px;
+        opacity: 0.6;
+}
+.mb{
+    margin-bottom: 10px;
 }
