@@ -35,7 +35,7 @@
                         <a class="nav-link" href="quem_somos.php">Quem somos</a>
                     </li>
                 </ul>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="carrinho.php">
                     <img src="img/icon-carrinho.png" width="30" height="30" class="d-inline-block align-top">
                 </a>
                 <button class="btn btn-outline-secondary" type="submit">Login</button>

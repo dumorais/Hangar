@@ -32,7 +32,7 @@
                         <a class="nav-link" href="quem_somos.php">Quem somos</a>
                     </li>
                 </ul>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="carrinho.php">
                     <img src="img/icon-carrinho.png" width="30" height="30" class="d-inline-block align-top">
                 </a>
                 <button class="btn btn-outline-secondary" type="submit">Login</button>
@@ -53,33 +53,35 @@
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+               <!-- <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
             </ol>
             <div class="carousel-inner">
 
                 <div class="carousel-item  active">
 
                     <div class="carousel-caption">
-                        <p>Peça um lache e o segundo sai com 50% de desconto! </p>
-                        <button class="carousel caption btn btn-light">Adicionar ao carrinho</button> 
+                        <p><b>Peça um hamburguer e o segundo sai com 50% de desconto!</b> </p>
+                       <button class="carousel caption btn btn-light">Adicionar ao carrinho</button>
                     </div>
 
-                    <img src="img/lanche.jpg" class="d-block w-100 image" alt="...">
+                    <img src="img/promocao.jpg" class="d-block w-100 image" alt="...">
                 </div>
+                
                 <div class="carousel-item">
                     <div class="carousel-caption">
-                        <p>Peça um lache e o segundo sai com 50% de desconto! </p>
+                        <p><b>Peça uma porção e um hamburguer e ganhe 20% de desconto </b> </p>
                         <button class="carousel caption btn btn-light">Adicionar ao carrinho</button> 
                     </div>
-                    <img src="img/hangar-foto2.jpg" class="d-block w-100 image" alt="...">
+                    <img src="img/promocao2.jpg" class="d-block w-100 image" alt="...">
                 </div>
-                <div class="carousel-item">
+                
+                <!--<div class="carousel-item">
                     <div class="carousel-caption">
                         <p>Peça um lache e o segundo sai com 50% de desconto! </p>
                         <button class="carousel caption btn btn-light">Adicionar ao carrinho</button> 
                     </div>
                     <img src="img/hangar-foto3.jpg" class="d-block w-100 image" alt="...">
-                </div>
+                </div> -->
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
