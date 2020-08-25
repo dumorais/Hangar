@@ -35,25 +35,52 @@
                 <a class="navbar-brand" href="carrinho.php">
                     <img src="img/icon-carrinho.png" width="30" height="30" class="d-inline-block align-top">
                 </a>
-                <button class="btn btn-outline-secondary" type="submit">Login</button>
+                <button class="btn btn-outline-secondary" data-toggle="modal" data-target="#modalLogin" type="submit">Login</button>
             </div>
         </nav>
+        <!-- Login modal -->
+         <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginTitulo" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLoginTitulo">Entre na Sua Conta</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="Formulario">
+                            <div class="form-group">
+                                <label>Login:</label>
+                                <input type="text" class="form-control" id="login">
+                            </div>
+                            <div class="form-group">
+                                <label for="loginSenha">Senha:</label>
+                                <input type="password" class="form-control" id="loginSenha">
+                            </div>
+                            <button type="reset" class="btn btn-success" onclick="Login()">Entrar na Conta</button>
+                            <small class="form-text text-muted">Esqueceu a senha? <a href="#">Clique aqui</a>.</small>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Carrossel da Home -->
-        
-       
-        
-       <div class="title">
+
+
+
+        <div class="title">
             <div class="bg-success text-center borda ">
                 <h4 class="titulo py-1">Promoções</h4>
             </div>
         </div> 
-        
+
 
         <div id="carouselExampleIndicators" class="carousel slide carousel1" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-               <!-- <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
+                <!-- <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
             </ol>
             <div class="carousel-inner">
 
@@ -61,27 +88,27 @@
 
                     <div class="carousel-caption">
                         <p><b>Peça um hamburguer e o segundo sai com 50% de desconto!</b> </p>
-                       <button class="carousel caption btn btn-light">Adicionar ao carrinho</button>
+                        <button class="carousel caption btn btn-light" type="button" onclick="Promo1()" >Adicionar ao carrinho</button>
                     </div>
 
                     <img src="img/promocao.jpg" class="d-block w-100 image" alt="...">
                 </div>
-                
+
                 <div class="carousel-item">
                     <div class="carousel-caption">
                         <p><b>Peça uma porção e um hamburguer e ganhe 20% de desconto </b> </p>
-                        <button class="carousel caption btn btn-light">Adicionar ao carrinho</button> 
+                        <button class="carousel caption btn btn-light" type="button" onclick="Promo2()">Adicionar ao carrinho</button> 
                     </div>
                     <img src="img/promocao2.jpg" class="d-block w-100 image" alt="...">
                 </div>
-                
+
                 <!--<div class="carousel-item">
-                    <div class="carousel-caption">
-                        <p>Peça um lache e o segundo sai com 50% de desconto! </p>
-                        <button class="carousel caption btn btn-light">Adicionar ao carrinho</button> 
-                    </div>
-                    <img src="img/hangar-foto3.jpg" class="d-block w-100 image" alt="...">
-                </div> -->
+<div class="carousel-caption">
+<p>Peça um lache e o segundo sai com 50% de desconto! </p>
+<button class="carousel caption btn btn-light">Adicionar ao carrinho</button> 
+</div>
+<img src="img/hangar-foto3.jpg" class="d-block w-100 image" alt="...">
+</div> -->
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -100,7 +127,7 @@
 
         <!-- Footer do Site -->
 
-        <footer class="bg-dark text-white">
+        <footer class="bg-dark text-white ">
             <div class="container py-4">
                 <div class="row">
                     <div class="col-md-4 col-6">
@@ -126,14 +153,13 @@
             </div>
             <div class="bg-light text-dark text-center py-3">
                 <p class="mb-0">Hangar 764 © 2020. Alguns direitos reservados.</p>
-            </div>
+            </div> 
         </footer>
 
         <script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
         <script type="text/javascript" src="js/popper.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
-        <script type="text/javascript" src="js/app.js"></script>
-
+         <script type="text/javascript" src="js/script.js"></script>
     </body> 
 
 

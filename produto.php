@@ -38,12 +38,44 @@
                 <a class="navbar-brand" href="carrinho.php">
                     <img src="img/icon-carrinho.png" width="30" height="30" class="d-inline-block align-top">
                 </a>
-                <button class="btn btn-outline-secondary" type="submit">Login</button>
+                <button class="btn btn-outline-secondary" data-toggle="modal" data-target="#modalLogin" type="submit">Login</button>
             </div>
         </nav>
         <br>
 
-        <!-- Cardapio do Hangar -->
+        <!-- Login modal -->
+        <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginTitulo" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLoginTitulo">Entre na Sua Conta</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="Formulario">
+                            <div class="form-group">
+                                <label>Login:</label>
+                                <input type="text" class="form-control" id="login">
+                            </div>
+                            <div class="form-group">
+                                <label for="loginSenha">Senha:</label>
+                                <input type="password" class="form-control" id="loginSenha">
+                            </div>
+                            <button type="reset" class="btn btn-success" onclick="Login()">Entrar na Conta</button>
+                            <small class="form-text text-muted">Esqueceu a senha? <a href="#">Clique aqui</a>.</small>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="btn-cadastro">
+            <a href="CadastrarProd.php"> <button class="btn btn-outline-secondary ml-3">Clique aqui para cadastrar os produtos</button> </a>
+        </div>
+
+        <!-- Botão Dropdown -->
         <div class="container">
             <div class="row">
                 <div class="btn-group py-4 col-md-6 col-12 ">
@@ -73,6 +105,8 @@
         </div>
 
         <div class="container">
+           
+             <!-- Card dos hambúrgueres -->
             <div class="bg-white borda py-4" id="card-hamburgueres" >
                 <?php 
                 $hamburgueres = GetProdutos(2);
@@ -112,6 +146,8 @@
 
 
             </div>
+            
+             <!-- Card dos Lanches -->
 
             <div class="bg-white borda py-4 " id="card-lanche" style="display: none">
                 <?php 
@@ -121,32 +157,33 @@
                 <?php while($produto=mysqli_fetch_array($lanches)){ ?>
 
                 <div class="row mb-4">
-                    
-                <div class="col-md-6 col-12 text-center">
-                    <img class="" src="<?= $produto['imagen'] ?>" alt="lache">
-                </div> 
-                <div class="col-md-6 col-12">
 
-                    <div class="col-md-12 text-center">
-                        <h3 class="text-center"><?= $produto['produto'] ?></h3>
+                    <div class="col-md-6 col-12 text-center">
+                        <img class="" src="<?= $produto['imagen'] ?>" alt="lache">
+                    </div> 
+                    <div class="col-md-6 col-12">
+
+                        <div class="col-md-12 text-center">
+                            <h3 class="text-center"><?= $produto['produto'] ?></h3>
                             <label class="text-center"><?= $produto['descr'] ?> - <b>R$<?= $produto['preco']?>,00</b></label> 
-                        <br>
+                            <br>
+                        </div>
+                        <div class="col-md-12 text-center py-3">
+                            <button class="btn btn-outline-danger tamanho" type="submit">-</button>
+                            <button class="btn btn-outline-success tamanho" type="submit">+</button>
+                            <label>0x</label>
+                            <br>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-secondary" type="submit">Excluir produto</button>
+                        </div>
                     </div>
-                    <div class="col-md-12 text-center py-3">
-                        <button class="btn btn-outline-danger tamanho" type="submit">-</button>
-                        <button class="btn btn-outline-success tamanho" type="submit">+</button>
-                        <label>0x</label>
-                        <br>
-                    </div>
-                    <div class="col-md-12 text-center">
-                        <button class="btn btn-secondary" type="submit">Excluir produto</button>
-                    </div>
-                </div>
                 </div>
                 <br>
                 <?php } ?>
             </div>
 
+             <!-- Card das porções -->
 
             <div class="bg-white borda py-4 " id="card-porcoes" style="display: none">
                 <?php 
@@ -156,33 +193,33 @@
                 <?php while($produto=mysqli_fetch_array($porcoes)){ ?>
 
                 <div class="row mb-4">
-                    
-                <div class="col-md-6 col-12 text-center ">
-                    <img class="" src="<?= $produto['imagen'] ?>" alt="lache">
-                </div> 
-                <div class="col-md-6 col-12">
 
-                    <div class="col-md-12 text-center">
-                        <h3 class="text-center"><?= $produto['produto'] ?></h3>
-                        <label class="text-center"><?= $produto['descr'] ?> - <b>R$<?= $produto['preco']?>,00</b></label>
-                        <br>
-                    </div>
-                    <div class="col-md-12 text-center py-3">
-                        <button class="btn btn-outline-danger tamanho" type="submit">-</button>
-                        <button class="btn btn-outline-success tamanho" type="submit">+</button>
-                        <label>0x</label>
-                        <br>
-                    </div>
-                    <div class="col-md-12 text-center">
-                        <button class="btn btn-secondary" type="submit">Excluir produto</button>
+                    <div class="col-md-6 col-12 text-center ">
+                        <img class="" src="<?= $produto['imagen'] ?>" alt="lache">
+                    </div> 
+                    <div class="col-md-6 col-12">
+
+                        <div class="col-md-12 text-center">
+                            <h3 class="text-center"><?= $produto['produto'] ?></h3>
+                            <label class="text-center"><?= $produto['descr'] ?> - <b>R$<?= $produto['preco']?>,00</b></label>
+                            <br>
+                        </div>
+                        <div class="col-md-12 text-center py-3">
+                            <button class="btn btn-outline-danger tamanho" type="submit">-</button>
+                            <button class="btn btn-outline-success tamanho" type="submit">+</button>
+                            <label>0x</label>
+                            <br>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-secondary" type="submit">Excluir produto</button>
+                        </div>
                     </div>
                 </div>
-                </div>
-            
+
                 <?php } ?>
             </div>
 
-
+             <!-- Card dos refrigerantes-->
 
             <div class="bg-white borda py-4 " id="card-refrigerante" style="display: none">
 
@@ -193,31 +230,33 @@
                 <?php while($produto=mysqli_fetch_array($refri)){ ?>
 
                 <div class="row mb-4">
-                    
-                <div class="col-md-6 col-12 text-center ">
-                    <img class="" src="<?= $produto['imagen'] ?>" alt="lache">
-                </div> 
-                <div class="col-md-6 col-12">
 
-                    <div class="col-md-12 text-center">
-                        <h3 class="text-center"><?= $produto['produto'] ?></h3>
-                        <label class="text-center"><?= $produto['descr'] ?> - <b>R$<?= $produto['preco']?>,00</b></label>
-                        <br>
+                    <div class="col-md-6 col-12 text-center ">
+                        <img class="" src="<?= $produto['imagen'] ?>" alt="lache">
+                    </div> 
+                    <div class="col-md-6 col-12">
+
+                        <div class="col-md-12 text-center">
+                            <h3 class="text-center"><?= $produto['produto'] ?></h3>
+                            <label class="text-center"><?= $produto['descr'] ?> - <b>R$<?= $produto['preco']?>,00</b></label>
+                            <br>
+                        </div>
+                        <div class="col-md-12 text-center py-3">
+                            <button class="btn btn-outline-danger tamanho" type="submit">-</button>
+                            <button class="btn btn-outline-success tamanho" type="submit">+</button>
+                            <label>0x</label>
+                            <br>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-secondary" type="submit">Excluir produto</button>
+                        </div>
                     </div>
-                    <div class="col-md-12 text-center py-3">
-                        <button class="btn btn-outline-danger tamanho" type="submit">-</button>
-                        <button class="btn btn-outline-success tamanho" type="submit">+</button>
-                        <label>0x</label>
-                        <br>
-                    </div>
-                    <div class="col-md-12 text-center">
-                        <button class="btn btn-secondary" type="submit">Excluir produto</button>
-                    </div>
-                </div>
                 </div>
 
                 <?php } ?>
             </div>
+            
+             <!-- Card das bebidas alcóolicas -->
 
             <div class="bg-white borda py-4 " id="card-bebidasalcoolicas" style="display: none">
 
@@ -229,26 +268,26 @@
 
                 <div class="row mb-4">
 
-                <div class="col-md-6 col-12 text-center">
-                    <img class="" src="<?= $produto['imagen'] ?>" alt="lache">
-                </div> 
-                <div class="col-md-6 col-12">
+                    <div class="col-md-6 col-12 text-center">
+                        <img class="" src="<?= $produto['imagen'] ?>" alt="lache">
+                    </div> 
+                    <div class="col-md-6 col-12">
 
-                    <div class="col-md-12 text-center">
-                        <h3 class="text-center"><?= $produto['produto'] ?></h3>
-                        <label class="text-center"><?= $produto['descr'] ?> - <b>R$<?= $produto['preco']?>,00</b></label>
-                        <br>
+                        <div class="col-md-12 text-center">
+                            <h3 class="text-center"><?= $produto['produto'] ?></h3>
+                            <label class="text-center"><?= $produto['descr'] ?> - <b>R$<?= $produto['preco']?>,00</b></label>
+                            <br>
+                        </div>
+                        <div class="col-md-12 text-center py-3">
+                            <button class="btn btn-outline-danger tamanho" type="submit">-</button>
+                            <button class="btn btn-outline-success tamanho" type="submit">+</button>
+                            <label>0x</label>
+                            <br>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-secondary" type="submit">Excluir produto</button>
+                        </div>
                     </div>
-                    <div class="col-md-12 text-center py-3">
-                        <button class="btn btn-outline-danger tamanho" type="submit">-</button>
-                        <button class="btn btn-outline-success tamanho" type="submit">+</button>
-                        <label>0x</label>
-                        <br>
-                    </div>
-                    <div class="col-md-12 text-center">
-                        <button class="btn btn-secondary" type="submit">Excluir produto</button>
-                    </div>
-                </div>
                 </div>
                 <br>
                 <br>

@@ -23,7 +23,7 @@ body{
 .titulo{
     color: black;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    font-size: 30px;
+    font-size: 25px;
 }
 .navbar-nav{
     text-align: center;
@@ -121,4 +121,30 @@ body{
     min-height: 400px;
 }
     
+}
+.linha{
+    background-color:#28a745;
+    height: 7px;
+}
+small a{
+    color: #28a745  !important;
+     text-decoration: none !important;
+    cursor: pointer;
+}
+.form{
+    background-color: white;
+    min-height: 300px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+input.form-control{
+    border-color: black;
+}
+textarea.form-control{
+    border-color: black;
+}
+.form-control:focus {
+  border-color:black;
+  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 0px rgba(0, 0, 0, 0);
 }

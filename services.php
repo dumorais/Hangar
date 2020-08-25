@@ -7,4 +7,7 @@ function GetProdutos($idcategoria){
     $resultado=mysqli_query(GetMysql(), $sql);
     return $resultado;
 }
+
+
+
 ?>

@@ -37,10 +37,38 @@
                 <a class="navbar-brand" href="#">
                     <img src="img/icon-carrinho.png" width="30" height="30" class="d-inline-block align-top">
                 </a>
-                <button class="btn btn-outline-secondary" type="submit">Login</button>
+               <button class="btn btn-outline-secondary" data-toggle="modal" data-target="#modalLogin" type="submit">Login</button>
             </div>
         </nav>
         <br>
+
+        <!-- Login modal -->
+         <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginTitulo" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLoginTitulo">Entre na Sua Conta</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="Formulario">
+                            <div class="form-group">
+                                <label>Login:</label>
+                                <input type="text" class="form-control" id="login">
+                            </div>
+                            <div class="form-group">
+                                <label for="loginSenha">Senha:</label>
+                                <input type="password" class="form-control" id="loginSenha">
+                            </div>
+                            <button type="reset" class="btn btn-success" onclick="Login()">Entrar na Conta</button>
+                            <small class="form-text text-muted">Esqueceu a senha? <a href="#">Clique aqui</a>.</small>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Produto escolhido -->
 
@@ -86,10 +114,10 @@
 
 
 
-                    <div class="col-md-3 text-center py-3">
-                        <button class="btn btn-outline-danger tamanho" type="submit">-</button>
-                        <button class="btn btn-outline-success tamanho" type="submit">+</button>
-                        <label>1x</label>
+                   <div class="col-md-3 text-center py-3">
+                        <button class="btn btn-outline-danger tamanho" type="button" onclick="process(-1)">-</button>
+                        <button class="btn btn-outline-success tamanho" type="button" onclick="process(1)" >+</button>
+                        <span id="num">1</span> <span>x</span>
                     </div>
 
                     <div class="col-md-3 py-3">
@@ -129,8 +157,8 @@
                             <option><?= $produto['produto']?></option>
                             <?php } ?>
                         </select>
-                        
-                         <div>
+
+                        <div>
                             <p><b>Valor: R$35,00</b></p>
                         </div>
 
@@ -139,9 +167,9 @@
 
 
                     <div class="col-md-3 text-center py-3">
-                        <button class="btn btn-outline-danger tamanho" type="submit">-</button>
-                        <button class="btn btn-outline-success tamanho" type="submit">+</button>
-                        <label>1x</label>
+                        <button class="btn btn-outline-danger tamanho" type="button" onclick="process2(-1)">-</button>
+                        <button class="btn btn-outline-success tamanho" type="button" onclick="process2(1)" >+</button>
+                        <span id="num2">1</span> <span>x</span>
                     </div>
 
                     <div class="col-md-3 py-3">
