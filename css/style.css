@@ -99,8 +99,8 @@ body{
 }
 .image{
     max-height: 600px;
-    min-height: 600px;
-        opacity: 0.6;
+    min-height: 700px;
+        opacity: 0.7;
 }
 
 .min{
@@ -115,13 +115,31 @@ body{
 .porcao{
     max-width: 135px;
 }
+
 @media only screen and (max-width: 800px) {
+    .image{
+    max-height: 600px;
+    min-height: 600px;
+}
+    .btn-promo{
+        width: 60%;
+        font-size: 60%;
+    }
+    
+}
+
+@media only screen and (max-width: 600px) {
+    btn-promo{
+        width: 50%;
+        font-size: 50%;
+    }
     .image{
     max-height: 400px;
     min-height: 400px;
 }
-    
 }
+
+
 .linha{
     background-color:#28a745;
     height: 7px;
@@ -147,4 +165,7 @@ textarea.form-control{
 .form-control:focus {
   border-color:black;
   box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 0px rgba(0, 0, 0, 0);
+}
+select.form-control{
+    border-color: black;
 }

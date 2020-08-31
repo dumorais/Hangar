@@ -69,46 +69,39 @@
 
 
 
-        <div class="title">
+     <!--   <div class="title">
             <div class="bg-success text-center borda ">
                 <h4 class="titulo py-1">Promoções</h4>
             </div>
-        </div> 
+        </div>  -->
 
 
-        <div id="carouselExampleIndicators" class="carousel slide carousel1" data-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide carousel1 mt-4" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <!-- <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
             </ol>
             <div class="carousel-inner">
 
                 <div class="carousel-item  active">
 
                     <div class="carousel-caption">
-                        <p><b>Peça um hamburguer e o segundo sai com 50% de desconto!</b> </p>
-                        <button class="carousel caption btn btn-light" type="button" onclick="Promo1()" >Adicionar ao carrinho</button>
+                      
+                        <button class="carousel caption btn btn-light btn-promo" type="button" onclick="Promo1()" >Adicionar ao carrinho</button>
                     </div>
 
-                    <img src="img/promocao.jpg" class="d-block w-100 image" alt="...">
+                    <img src="img/1.png" class="d-block w-100 image" alt="...">
                 </div>
 
                 <div class="carousel-item">
                     <div class="carousel-caption">
-                        <p><b>Peça uma porção e um hamburguer e ganhe 20% de desconto </b> </p>
-                        <button class="carousel caption btn btn-light" type="button" onclick="Promo2()">Adicionar ao carrinho</button> 
+                  
+                        <button class="carousel caption btn btn-light btn-promo" type="button" onclick="Promo2()">Adicionar ao carrinho</button> 
                     </div>
-                    <img src="img/promocao2.jpg" class="d-block w-100 image" alt="...">
+                    <img src="img/2.png" class="d-block w-100 image" alt="...">
                 </div>
 
-                <!--<div class="carousel-item">
-<div class="carousel-caption">
-<p>Peça um lache e o segundo sai com 50% de desconto! </p>
-<button class="carousel caption btn btn-light">Adicionar ao carrinho</button> 
-</div>
-<img src="img/hangar-foto3.jpg" class="d-block w-100 image" alt="...">
-</div> -->
+    
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>

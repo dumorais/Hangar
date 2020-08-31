@@ -8,6 +8,11 @@ function GetProdutos($idcategoria){
     return $resultado;
 }
 
+function GetCategorias(){
+    $sql = "SELECT idcategoria, descr FROM produto_categoria";
+    $resultado=mysqli_query(GetMysql(), $sql);
+    return $resultado;
+}
 
 
 ?>

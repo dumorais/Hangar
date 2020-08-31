@@ -129,12 +129,12 @@
                         <div class="col-md-12 text-center py-3">
                             <button class="btn btn-outline-danger tamanho" type="submit">-</button>
                             <button class="btn btn-outline-success tamanho" type="submit">+</button>
-                            <label>0x</label> 
+                            <label id="preco-<?= $produto['idproduto'] ?> ">0</label> <label>x</label> 
                             <br>
                         </div>
-                        <div class="col-md-12 text-center">
+                      <!--  <div class="col-md-12 text-center">
                             <button class="btn btn-secondary" type="submit">Excluir produto</button>
-                        </div> 
+                        </div> -->
                     </div>
 
                 </div>
@@ -171,12 +171,12 @@
                         <div class="col-md-12 text-center py-3">
                             <button class="btn btn-outline-danger tamanho" type="submit">-</button>
                             <button class="btn btn-outline-success tamanho" type="submit">+</button>
-                            <label>0x</label>
+                            <label id="preco-<?= $produto['idproduto'] ?> ">0</label> <label>x</label>
                             <br>
                         </div>
-                        <div class="col-md-12 text-center">
+                        <!--  <div class="col-md-12 text-center">
                             <button class="btn btn-secondary" type="submit">Excluir produto</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <br>
@@ -207,12 +207,12 @@
                         <div class="col-md-12 text-center py-3">
                             <button class="btn btn-outline-danger tamanho" type="submit">-</button>
                             <button class="btn btn-outline-success tamanho" type="submit">+</button>
-                            <label>0x</label>
+                            <label id="preco-<?= $produto['idproduto'] ?> ">0</label> <label>x</label>
                             <br>
                         </div>
-                        <div class="col-md-12 text-center">
+                       <!--  <div class="col-md-12 text-center">
                             <button class="btn btn-secondary" type="submit">Excluir produto</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -244,12 +244,12 @@
                         <div class="col-md-12 text-center py-3">
                             <button class="btn btn-outline-danger tamanho" type="submit">-</button>
                             <button class="btn btn-outline-success tamanho" type="submit">+</button>
-                            <label>0x</label>
+                           <label id="preco-<?= $produto['idproduto'] ?> ">0</label> <label>x</label>
                             <br>
                         </div>
-                        <div class="col-md-12 text-center">
+                       <!--  <div class="col-md-12 text-center">
                             <button class="btn btn-secondary" type="submit">Excluir produto</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -281,12 +281,12 @@
                         <div class="col-md-12 text-center py-3">
                             <button class="btn btn-outline-danger tamanho" type="submit">-</button>
                             <button class="btn btn-outline-success tamanho" type="submit">+</button>
-                            <label>0x</label>
+                            <label id="preco-<?= $produto['idproduto'] ?> ">0</label> <label>x</label>
                             <br>
                         </div>
-                        <div class="col-md-12 text-center">
+                        <!--  <div class="col-md-12 text-center">
                             <button class="btn btn-secondary" type="submit">Excluir produto</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <br>
