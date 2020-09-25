@@ -121,8 +121,6 @@ function Manter_sessao(idproduto, nome, preco, value)
 }
 
 
-
-
 function CheckForm(form){
 
 
@@ -203,7 +201,7 @@ function Produto_Excluir(idproduto){
     var produtos = JSON.parse(localStorage.getItem("produtos"));
     var produto_excluido = produtos.findIndex(
         function(item){
-            return JSON.stringify(item.id) == idproduto;
+            return item.id == idproduto;
         }
     );
     produtos.splice(produto_excluido , 1);
