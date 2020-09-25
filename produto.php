@@ -9,13 +9,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/style.css">
+
     </head>
 
     <body>
         <?php include('Header.php'); ?>
 
-        <?php 
-            if(isset($_SESSION['nome']) & $_SESSION['categoria'] == 2){
+        <?php
+        if(isset($_SESSION['nome']) && $_SESSION['categoria'] == 2){
 
         ?>
         <div id="btn-cadastro" class="mt-2">
@@ -26,7 +27,7 @@
         <!-- Botão Dropdown -->
         <div class="container">
             <div class="row">
-                
+
                 <div class="btn-group py-4 col-md-6 col-12 ">
                     <button type="button" class="btn btn-outline-success button">Porções e lanches</button>
                     <button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -39,7 +40,7 @@
                         <a class="dropdown-item btn-outline-success" id="porcoes" onclick="porcao()">Porções</a>
                     </div>
                 </div>
-                
+
                 <div class="btn-group py-4 col-md-6 col-12 ">
                     <button type="button" class="btn btn-outline-success button">Bebidas</button>
                     <button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,12 +54,12 @@
                 </div>
             </div>
         </div>
-        
+
 
         <div class="container">
 
             <!-- Card dos hambúrgueres -->
-            
+
             <div class="bg-white borda py-4 mb-2" id="card-hamburgueres" >
                 <?php 
                 $hamburgueres = GetProdutos(2);
@@ -78,17 +79,19 @@
 
                             <div class="col-md-12 text-center">
                                 <h3 class="text-center"><?= $produto['produto'] ?></h3>
-                                <label class=""><?= $produto['descr'] ?> - <b>R$<?= $produto['preco']?>,00</b></label>
+                                <label class=""><?= $produto['descr'] ?> - <b>R$<?= number_format($produto['preco'],2) ?></b></label>
                                 <br>
                             </div>
                             <div class="col-md-12 text-center py-3">
-                                <button class="btn btn-outline-danger tamanho" type="submit">-</button>
-                                <button class="btn btn-outline-success tamanho" type="submit">+</button>
-                                <label id="preco-<?= $produto['idproduto'] ?> ">0</label> <label>x</label> 
-                                <br>
+                                <button class="btn btn-outline-danger tamanho" type="button" onclick="BTN_qnt(-1,'<?= $produto['idproduto'] ?>', '<?= $produto['produto'] ?>', '<?= $produto['preco'] ?>') ">-</button>
+
+                                <button class="btn btn-outline-success tamanho" type="button" onclick="BTN_qnt(1, '<?= $produto['idproduto'] ?>', '<?= $produto['produto'] ?>', '<?= $produto['preco'] ?>')" >+</button>
+
+                                <label id="preco-<?= $produto['idproduto'] ?>">0</label> <label>x</label> 
+
                             </div>
                             <?php 
-                                if(isset($_SESSION['nome']) & $_SESSION['categoria'] == 2){
+    if(isset($_SESSION['nome']) && $_SESSION['categoria'] == 2){
 
                             ?>
                             <div class="col-md-12 text-center">
@@ -111,7 +114,7 @@
 
             <!-- Card dos Lanches -->
 
-            <div class="bg-white borda py-4 " id="card-lanche" style="display: none">
+            <div class="bg-white borda py-4 mb-2" id="card-lanche" style="display: none">
                 <?php 
                 $lanches = GetProdutos(3);
                 ?>
@@ -130,17 +133,19 @@
 
                             <div class="col-md-12 text-center">
                                 <h3 class="text-center"><?= $produto['produto'] ?></h3>
-                                <label class="text-center"><?= $produto['descr'] ?> - <b>R$<?= $produto['preco']?>,00</b></label> 
+                                <label class="text-center"><?= $produto['descr'] ?> - <b>R$<?= number_format($produto['preco'],2) ?></b></label> 
                                 <br>
                             </div>
-                            <div class="col-md-12 text-center py-3">
-                                <button class="btn btn-outline-danger tamanho" type="submit">-</button>
-                                <button class="btn btn-outline-success tamanho" type="submit">+</button>
-                                <label id="preco-<?= $produto['idproduto'] ?> ">0</label> <label>x</label>
-                                <br>
+                           <div class="col-md-12 text-center py-3">
+                                <button class="btn btn-outline-danger tamanho" type="button" onclick="BTN_qnt(-1,'<?= $produto['idproduto'] ?>', '<?= $produto['produto'] ?>', '<?= $produto['preco'] ?>') ">-</button>
+
+                                <button class="btn btn-outline-success tamanho" type="button" onclick="BTN_qnt(1, '<?= $produto['idproduto'] ?>', '<?= $produto['produto'] ?>', '<?= $produto['preco'] ?>')" >+</button>
+
+                                <label id="preco-<?= $produto['idproduto'] ?>">0</label> <label>x</label> 
+
                             </div>
                             <?php 
-                                if(isset($_SESSION['nome']) & $_SESSION['categoria'] == 2){
+    if(isset($_SESSION['nome']) && $_SESSION['categoria'] == 2){
 
                             ?>
                             <div class="col-md-12 text-center">
@@ -158,7 +163,7 @@
 
             <!-- Card das porções -->
 
-            <div class="bg-white borda py-4 " id="card-porcoes" style="display: none">
+            <div class="bg-white borda py-4 mb-2" id="card-porcoes" style="display: none">
                 <?php 
                 $porcoes = GetProdutos(5);
                 ?>
@@ -177,17 +182,19 @@
 
                             <div class="col-md-12 text-center">
                                 <h3 class="text-center"><?= $produto['produto'] ?></h3>
-                                <label class="text-center"><?= $produto['descr'] ?> - <b>R$<?= $produto['preco']?>,00</b></label>
+                                <label class="text-center"><?= $produto['descr'] ?> - <b>R$<?= number_format($produto['preco'],2) ?></b></label>
                                 <br>
                             </div>
                             <div class="col-md-12 text-center py-3">
-                                <button class="btn btn-outline-danger tamanho" type="submit">-</button>
-                                <button class="btn btn-outline-success tamanho" type="submit">+</button>
-                                <label id="preco-<?= $produto['idproduto'] ?> ">0</label> <label>x</label>
-                                <br>
+                                <button class="btn btn-outline-danger tamanho" type="button" onclick="BTN_qnt(-1,'<?= $produto['idproduto'] ?>', '<?= $produto['produto'] ?>', '<?= $produto['preco'] ?>') ">-</button>
+
+                                <button class="btn btn-outline-success tamanho" type="button" onclick="BTN_qnt(1, '<?= $produto['idproduto'] ?>', '<?= $produto['produto'] ?>', '<?= $produto['preco'] ?>')" >+</button>
+
+                                <label id="preco-<?= $produto['idproduto'] ?>">0</label> <label>x</label> 
+
                             </div>
                             <?php 
-                                if(isset($_SESSION['nome']) & $_SESSION['categoria'] == 2){
+    if(isset($_SESSION['nome']) && $_SESSION['categoria'] == 2){
 
                             ?>
                             <div class="col-md-12 text-center">
@@ -203,7 +210,7 @@
 
             <!-- Card dos refrigerantes-->
 
-            <div class="bg-white borda py-4 " id="card-refrigerante" style="display: none">
+            <div class="bg-white borda py-4 mb-2" id="card-refrigerante" style="display: none">
 
                 <?php 
                 $refri = GetProdutos(1);
@@ -223,17 +230,19 @@
 
                             <div class="col-md-12 text-center">
                                 <h3 class="text-center"><?= $produto['produto'] ?></h3>
-                                <label class="text-center"><?= $produto['descr'] ?> - <b>R$<?= $produto['preco']?>,00</b></label>
+                                <label class="text-center"><?= $produto['descr'] ?> - <b>R$<?= number_format($produto['preco'],2) ?></b></label>
                                 <br>
                             </div>
-                            <div class="col-md-12 text-center py-3">
-                                <button class="btn btn-outline-danger tamanho" type="submit">-</button>
-                                <button class="btn btn-outline-success tamanho" type="submit">+</button>
-                                <label id="preco-<?= $produto['idproduto'] ?> ">0</label> <label>x</label>
-                                <br>
+                           <div class="col-md-12 text-center py-3">
+                                <button class="btn btn-outline-danger tamanho" type="button" onclick="BTN_qnt(-1,'<?= $produto['idproduto'] ?>', '<?= $produto['produto'] ?>', '<?= $produto['preco'] ?>') ">-</button>
+
+                                <button class="btn btn-outline-success tamanho" type="button" onclick="BTN_qnt(1, '<?= $produto['idproduto'] ?>', '<?= $produto['produto'] ?>', '<?= $produto['preco'] ?>')" >+</button>
+
+                                <label id="preco-<?= $produto['idproduto'] ?>">0</label> <label>x</label> 
+
                             </div>
                             <?php 
-                                if(isset($_SESSION['nome']) & $_SESSION['categoria'] == 2){
+    if(isset($_SESSION['nome']) && $_SESSION['categoria'] == 2){
 
                             ?>
                             <div class="col-md-12 text-center">
@@ -250,7 +259,7 @@
 
             <!-- Card das bebidas alcóolicas -->
 
-            <div class="bg-white borda py-4 " id="card-bebidasalcoolicas" style="display: none">
+            <div class="bg-white borda py-4 mb-2" id="card-bebidasalcoolicas" style="display: none">
 
                 <?php 
                 $bebida = GetProdutos(4);
@@ -270,22 +279,25 @@
 
                             <div class="col-md-12 text-center">
                                 <h3 class="text-center"><?= $produto['produto'] ?></h3>
-                                <label class="text-center"><?= $produto['descr'] ?> - <b>R$<?= $produto['preco']?>,00</b></label>
+                                <label class="text-center"><?= $produto['descr'] ?> - <b>R$<?= number_format($produto['preco'],2)?></b></label>
                                 <br>
                             </div>
-                            <div class="col-md-12 text-center py-3">
-                                <button class="btn btn-outline-danger tamanho" type="submit">-</button>
-                                <button class="btn btn-outline-success tamanho" type="submit">+</button>
-                                <label id="preco-<?= $produto['idproduto'] ?> ">0</label> <label>x</label>
-                                <br>
+                           <div class="col-md-12 text-center py-3">
+                                <button class="btn btn-outline-danger tamanho" type="button" onclick="BTN_qnt(-1,'<?= $produto['idproduto'] ?>', '<?= $produto['produto'] ?>', '<?= $produto['preco'] ?>') ">-</button>
+
+                                <button class="btn btn-outline-success tamanho" type="button" onclick="BTN_qnt(1, '<?= $produto['idproduto'] ?>', '<?= $produto['produto'] ?>', '<?= $produto['preco'] ?>')" >+</button>
+
+                                <label id="preco-<?= $produto['idproduto'] ?>">0</label> <label>x</label> 
+
                             </div>
                             <?php 
-                                if(isset($_SESSION['nome']) & $_SESSION['categoria'] == 2){
+                                if(isset($_SESSION['nome']) && $_SESSION['categoria'] == 2){
 
                             ?>
                             <div class="col-md-12 text-center">
                                 <button class="btn btn-secondary"  type="button" onclick="Excluir(<?= $produto['idproduto'] ?>)">Excluir produto</button>
                             </div>
+
                             <?php } ?>
                         </div>
                     </div>
@@ -297,14 +309,28 @@
 
         </div>
 
-       
+
 
         <!-- Footer do Site -->
 
         <?php include('Footer.php'); ?>
 
-        
+        <?php 
+        if(isset($_SESSION['msg_excluir'])){
+            echo "<script>alert('" . $_SESSION['msg_excluir'] . "');</script>";
+            unset ($_SESSION['msg_excluir']);
 
+        } 
+
+        ?>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            $(function () {
+               Get_qtd_produtos();
+            });
+        </script>
 
 
     </body>

@@ -53,7 +53,7 @@
                 <textarea class="form-control" rows="3" name="Descr" placeholder="Coloque a descrição do produto" required></textarea>
             </div>
             <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-outline-success">Salvar</button>
+                <button type="submit" class="btn btn-success">Salvar</button>
             </div>
 
         </form>
@@ -64,7 +64,14 @@
 
          <?php include('Footer.php'); ?>
 
-
+         <?php 
+        if(isset($_SESSION['msg_prod'])){
+            echo "<script>alert('" . $_SESSION['msg_prod'] . "');</script>";
+            unset ($_SESSION['msg_prod']);
+            
+        } 
+    
+        ?>
 
     </body> 
 

@@ -38,10 +38,10 @@ session_start();
                 <?php 
                 if(isset($_SESSION['nome'])){
                     echo " <div class='text-secondary mr-0 name'> Olá, " . $_SESSION['nome'] . " </div> ";
-                  //  if ($_SESSION['categoria'] == 2){ 
-                    //  echo " <div class='adm text-secondary mr-4 text-center '> <p class='border border-secondary borda py-1'>adm</p> </div> </div> ";
-                  } ?>
-              
+                    if ($_SESSION['categoria'] == 2){ 
+                        echo " <div class='adm text-secondary mr-4 text-center '> <p class='border border-secondary borda py-1'>adm</p> </div> </div> ";
+                    } } ?>
+
 
                 <a class="navbar-brand" href="carrinho.php">
                     <img src="img/icon-carrinho.png" width="30" height="30" class="d-inline-block align-top">
@@ -86,7 +86,7 @@ session_start();
                             <small class="form-text text-muted">Esqueceu a senha? <a href="#">Clique aqui</a>.</small>
                             <small class="form-text text-muted">Não tem um cadastro? <a href="cadastro.php">Faça aqui</a>.</small>
                             <div class="modal-footer d-flex justify-content-center ">
-                                <button type="submit" class="btn btn-success btn btn-default" onclick="Login()">Login</button>
+                                <button type="submit" class="btn btn-success btn btn-default" onclick="Login()">Entrar</button>
                             </div>
                         </form>
                     </div>
@@ -94,11 +94,23 @@ session_start();
             </div>
         </div>
 
-
+        <script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
+        <script type="text/javascript" src="js/popper.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/script.js"></script> 
+        
         <?php 
         if(isset($_SESSION['msg_login'])){
+            echo "<script>alert('" . $_SESSION['msg_login'] . "');</script>";
             unset ($_SESSION['msg_login']);
             echo "<script> AbrirModal() </script>";
-        } ?>
+
+        } 
+
+        ?>
+
+
+
     </body>
+
 </html>

@@ -15,7 +15,7 @@ if($resultado){
         $_SESSION['login'] = $row_usuario['login'];
         $_SESSION['nome'] = $row_usuario['nome'];
          $_SESSION['categoria'] = $row_usuario['categoria'];
-
+        
 
 
 

@@ -1,6 +1,7 @@
 <?php require_once 'conexao.php'; ?>
 
 <?php
+session_start();
 $produto = $_POST['NomeProd'];
 $categoria = $_POST['Categoria'];
 $preco = $_POST['Preco'];
@@ -11,7 +12,7 @@ $sql = "INSERT INTO produtos (idcategoria, produto, preco, imagen, descr) VALUE 
 $resultado=mysqli_query(GetMysql(),$sql);
 
 if ($resultado) {
-    echo "<script> alert ('Cadastrado com sucesso'); </script>";
+   $_SESSION['msg_prod'] = "Produto cadastrado com sucesso!";
 } else {
     echo "Erro" ;
 }

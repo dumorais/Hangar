@@ -1,7 +1,13 @@
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
+
     MenuActive();
-   
+
+    if(!localStorage.getItem("produtos")){
+        var produtos = [];
+        localStorage.setItem("produtos", JSON.stringify(produtos));
+    }
+
 });
 
 function refrigerante() {
@@ -62,23 +68,67 @@ function process(num){
     }
 }
 
-function process2(num2){
-    var value = parseInt(document.getElementById("num2").innerHTML);
-    console.log(value);
-    value+=num2;
+function BTN_qnt(operador, idproduto, nome, preco, carrinho=false){
+    var value = parseInt($("#preco-" + idproduto).html());
+    value+=operador;
     if(value < 1){
-        document.getElementById("num2").innerHTML = 1;
+        if(!carrinho){
+            $("#preco-" + idproduto).html(0);
+        }
     }else{
-        document.getElementById("num2").innerHTML = value;
+        $("#preco-" + idproduto).html(value);
     }
+
+    Manter_sessao(idproduto, nome, preco, value);
+
+
 }
+
+function BTN_qnt_carrinho(operador, idproduto, nome, preco){
+    var value = parseInt($("#preco-" + idproduto).html());
+}
+
+function Manter_sessao(idproduto, nome, preco, value)
+{
+    var produto = {
+        id: idproduto, 
+        nome: nome,
+        preco: preco,
+        qtd: value
+    };
+    
+    var produtos = JSON.parse(localStorage.getItem("produtos"));
+    var busca_produto = produtos? produtos.find(
+        function(item){
+            return JSON.stringify(item.id) == JSON.stringify(produto.id);
+        }
+    ) : null;
+
+    if(busca_produto){
+        var idx = produtos.findIndex(function(item){
+            return JSON.stringify(item.id) == JSON.stringify(produto.id);
+        });
+        if(value < 1 ){
+            produtos.splice(idx,1);
+        }else{
+            produtos[idx] = produto;
+        }
+    }else{
+        produtos.push(produto);
+    }
+    localStorage.setItem("produtos", JSON.stringify(produtos));
+
+}
+
+
+
 
 function CheckForm(form){
 
 
     var senha= form_cliente.Senha.value;
     var Confirma= form_cliente.Confirmar.value;
-    
+
     if(senha != Confirma){
         alert("SENHAS DIFERENTES !");
         form_cliente.Senha.focus();
@@ -100,6 +150,11 @@ function CheckCPF(form){
     var resto =0;
     var d1 = 0;
     var d2 = 0;
+
+    if (cpf == "00000000000" || cpf == "11111111111" || cpf == "22222222222" || cpf == "33333333333" || cpf == "44444444444" || cpf == "55555555555" || cpf == "66666666666" || cpf == "77777777777" || cpf == "88888888888" || cpf == "99999999999"){
+        alert ("CPF inválido!");
+        return false;
+    }
 
     for (i=1; i<=9; i++){
         soma += parseInt(cpf.substring(i-1,i)) * (11-i);
@@ -132,7 +187,7 @@ function CheckCPF(form){
 }
 
 function MenuActive(){
-     $('.nav-item').click(MenuActive);
+    $('.nav-item').click(MenuActive);
     var index = document.URL.lastIndexOf("/") + 1;
     var menu = document.URL.substring(index);
     var link = $('a[href="'+menu+'"]');
@@ -140,15 +195,77 @@ function MenuActive(){
 }
 
 function Alert_Login(){
+    $("#modalLogin").modal('show');
     alert("Faça o login para prosseguir");
+}
+
+function Produto_Excluir(idproduto){
+    var produtos = JSON.parse(localStorage.getItem("produtos"));
+    var produto_excluido = produtos.findIndex(
+        function(item){
+            return JSON.stringify(item.id) == idproduto;
+        }
+    );
+    produtos.splice(produto_excluido , 1);
+    localStorage.setItem("produtos", JSON.stringify(produtos));
+    $(`#div-carrinho-${idproduto}`).remove(); 
 }
 
 function AbrirModal(){
     $("#modalLogin").modal('show');
-    alert("Login ou senha incorretos");
 }
 
 function Excluir(idproduto){
     $('#idproduto').val(idproduto);
     document.getElementById("form_produto").submit();
 }
+
+function Get_qtd_produtos(){
+    var produtos = JSON.parse(localStorage.getItem("produtos"));
+    $.each(produtos, function( index, value ) {
+        $("#preco-" + value.id).html(value.qtd);
+    });
+}
+
+
+
+function Carregar_carrinho(){
+
+    var produtos = localStorage.getItem("produtos"); 
+    console.log(produtos);
+    if(produtos){
+
+        $.each(JSON.parse(produtos), function( index, value ) {
+            var div = `
+<div class="row mb-4" id="div-carrinho-${value.id}">
+
+
+<div class="col-md-3 text-center">
+<h2>${value.nome}</h2>
+</div>
+<div class="col-md-3 col-12 text-center py-2">
+<p><b>Valor: RS${value.preco}</b></p>
+</div>
+
+
+<div class="col-md-3 text-center py-2">
+<button class="btn btn-outline-danger tamanho" type="button" onclick="BTN_qnt(-1,'${value.id}', '${value.nome}', '${value.preco}', true) ">-</button>
+
+<button class="btn btn-outline-success tamanho" type="button" onclick="BTN_qnt(1, '${value.id}', '${value.nome}', '${value.preco}')" >+</button>
+
+<label id="preco-${value.id}">${value.qtd}</label> <label>x</label> 
+</div>
+
+<div class="col-md-3 py-2">
+<div class="text-center">
+<button class="btn btn-secondary" type="button" onclick="Produto_Excluir('${value.id}')">Excluir produto</button>
+</div> 
+</div>
+
+</div>
+`;
+            $("#div-produtos").append(div);
+        });
+    }
+}
+

@@ -1,15 +1,17 @@
 <?php require_once 'conexao.php'; ?>
 
 <?php
-    $idproduto = $_POST['idproduto'];
+session_start();
 
-    $sql = "DELETE FROM produtos WHERE idproduto = $idproduto";
-    $resultado=mysqli_query(GetMysql(),$sql);
+$idproduto = $_POST['idproduto'];
 
-    if($resultado){
-        $_SESSION['msg'] = "Produto excluido com sucesso!";
-    }
+$sql = "DELETE FROM produtos WHERE idproduto = $idproduto";
+$resultado=mysqli_query(GetMysql(),$sql);
 
-    header("Location: ".$_SERVER['HTTP_REFERER']);
+if($resultado){
+    $_SESSION['msg_excluir'] = "Produto excluido com sucesso!";
+}
+
+header("Location: ".$_SERVER['HTTP_REFERER']);
 
 ?>
