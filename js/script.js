@@ -71,16 +71,18 @@ function process(num){
 function BTN_qnt(operador, idproduto, nome, preco, carrinho=false){
     var value = parseInt($("#preco-" + idproduto).html());
     value+=operador;
+    
     if(value < 1){
         if(!carrinho){
             $("#preco-" + idproduto).html(0);
+        }else{
+            return false;
         }
     }else{
         $("#preco-" + idproduto).html(value);
     }
 
     Manter_sessao(idproduto, nome, preco, value);
-
 
 }
 
