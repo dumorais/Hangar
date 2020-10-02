@@ -21,33 +21,46 @@ session_start();
             <a class="head display-4 pb-3" href="index.php"><span>Hangar 764</span></a>
         </div>
 
-        <nav class="navbar navbar-expand navbar-dark bg-dark ">
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ">  
+        <nav class="navbar navbar-expand-sm navbar-dark navbar-fixed-top bg-dark ">
+            <span href="index.php" class="text-secondary navbar-toggler" data-target="#navbar-responsiva" >Hangar 764</span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-responsiva" aria-controls="navbar-responsiva" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar-responsiva">
+
+                <ul class="navbar-nav">  
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
+                        <a class="nav-link " href="index.php">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         <a class="nav-link" href="produto.php">Cardápio</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         <a class="nav-link" href="quem_somos.php">Quem somos</a>
                     </li>
+                    <?php if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){  ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cadastro_funcionario.php">Cadastro funcionário</a>
+                    </li>
+                    <?php }?>
                 </ul>
+
                 <?php 
                 if(isset($_SESSION['nome'])){
                     echo " <div class='text-secondary mr-0 name'> Olá, " . $_SESSION['nome'] . " </div> ";
-                    if ($_SESSION['categoria'] == 2){ 
-                        echo " <div class='adm text-secondary mr-4 text-center '> <p class='border border-secondary borda py-1'>adm</p> </div> </div> ";
-                    } } ?>
+                }
+                if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){  ?>
+                <div class='adm text-secondary mr-4 text-center '> <p class='border border-secondary borda py-1'>adm</p> </div> 
+                <?php    } ?>
 
 
                 <a class="navbar-brand" href="carrinho.php">
                     <img src="img/icon-carrinho.png" width="30" height="30" class="d-inline-block align-top">
                 </a>
 
-                <form action="logout.php">
+                <form class="navbar-brand" action="logout.php">
 
                     <?php 
                     if(isset($_SESSION['nome'])){ ?>
@@ -97,8 +110,10 @@ session_start();
         <script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
         <script type="text/javascript" src="js/popper.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
         <script type="text/javascript" src="js/script.js"></script> 
-        
+
+
         <?php 
         if(isset($_SESSION['msg_login'])){
             echo "<script>alert('" . $_SESSION['msg_login'] . "');</script>";

@@ -136,7 +136,11 @@ body{
     .image{
     max-height: 400px;
     min-height: 400px;
-}
+    }
+    .adm p{
+    font-size: 13px;
+    width: 10%;
+    }
 }
 
 
@@ -170,7 +174,7 @@ select.form-control{
     border-color: black;
 }
 .adm p{
-    font-size: 10px;
+    font-size: 13px;
     width: 150%;
 }
 .name{

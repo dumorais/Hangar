@@ -3,16 +3,15 @@
 <?php
 session_start();
 $Nome = $_POST['Nome'];
-$CPF = $_POST['CPF'];
+$CPF = $_POST['cpf'];
 $Email = $_POST['Email'];
-$Telefone = $_POST['Telefone'];
-$Dtnasc = $_POST['Dtnasc'];
+$Cargo = $_POST['Cargo'];
 $Login = $_POST['Login'];
 $Senha = $_POST['Senha'];
 $Perfil = $_POST['Perfil'];
 
 
-$sql2 = "SELECT login FROM usuario WHERE login = '$Login'";
+$sql2 = "SELECT login FROM funcionario WHERE login = '$Login'";
 $resultado2=mysqli_query(GetMysql(),$sql2);
 
 if($resultado2){
@@ -22,7 +21,7 @@ if($resultado2){
          $_SESSION['msg_cad'] = "Já existe este login, tente outro!";
     } else{
 
-        $sql = "INSERT INTO usuario (nome, telefone, email, Dtnasc, cpf, idperfil, login, senha) VALUE ('$Nome', '$Telefone', '$Email', '$Dtnasc', '$CPF', '$Login', '$Senha')";
+        $sql = "INSERT INTO funcionario (nome, idperfil, cpf, email, cargo, login, senha) VALUE ('$Nome', '$Perfil', '$CPF', '$Email', '$Cargo', '$Login', '$Senha')";
         $resultado=mysqli_query(GetMysql(),$sql);
 
         if ($resultado) {

@@ -7,7 +7,6 @@ $(function () {
         var produtos = [];
         localStorage.setItem("produtos", JSON.stringify(produtos));
     }
-
 });
 
 function refrigerante() {
@@ -57,21 +56,11 @@ function Promo2(){
     alert ("Adicionado ao carrinho!");
 }
 
-function process(num){
-    var value = parseInt(document.getElementById("num").innerHTML);
-    console.log(value);
-    value+=num;
-    if(value < 1){
-        document.getElementById("num").innerHTML = 1;
-    }else{
-        document.getElementById("num").innerHTML = value;
-    }
-}
 
 function BTN_qnt(operador, idproduto, nome, preco, carrinho=false){
     var value = parseInt($("#preco-" + idproduto).html());
     value+=operador;
-    
+
     if(value < 1){
         if(!carrinho){
             $("#preco-" + idproduto).html(0);
@@ -79,15 +68,16 @@ function BTN_qnt(operador, idproduto, nome, preco, carrinho=false){
             return false;
         }
     }else{
+        if(carrinho){
+            var total = parseInt($("#valor-total").html());
+            var total_att = total + (parseInt(operador) * parseInt(preco));
+            $("#total").html("<b>Total: R$<span id='valor-total'>" + total_att + "</span></b>");
+        }
         $("#preco-" + idproduto).html(value);
     }
 
     Manter_sessao(idproduto, nome, preco, value);
 
-}
-
-function BTN_qnt_carrinho(operador, idproduto, nome, preco){
-    var value = parseInt($("#preco-" + idproduto).html());
 }
 
 function Manter_sessao(idproduto, nome, preco, value)
@@ -98,13 +88,14 @@ function Manter_sessao(idproduto, nome, preco, value)
         preco: preco,
         qtd: value
     };
-    
+
     var produtos = JSON.parse(localStorage.getItem("produtos"));
     var busca_produto = produtos? produtos.find(
         function(item){
             return JSON.stringify(item.id) == JSON.stringify(produto.id);
         }
     ) : null;
+
 
     if(busca_produto){
         var idx = produtos.findIndex(function(item){
@@ -122,6 +113,80 @@ function Manter_sessao(idproduto, nome, preco, value)
 
 }
 
+function Carregar_carrinho(){
+
+    var total = 0;
+    var produtos = localStorage.getItem("produtos"); 
+    if(produtos){
+
+        $.each(JSON.parse(produtos), function( index, value ) {
+            var div = `
+<div class="row mb-4" id="div-carrinho-${value.id}">
+
+
+<div class="col-md-3 text-center">
+<h2>${value.nome}</h2>
+</div>
+<div class="col-md-3 col-12 text-center py-2">
+<p><b>Valor: RS${value.preco}</b></p>
+</div>
+
+
+<div class="col-md-3 text-center py-2">
+<button class="btn btn-outline-danger tamanho" type="button" onclick="BTN_qnt(-1,'${value.id}', '${value.nome}', '${value.preco}', true) ">-</button>
+
+<button class="btn btn-outline-success tamanho" type="button" onclick="BTN_qnt(1, '${value.id}', '${value.nome}', '${value.preco}', true)" >+</button>
+
+<label id="preco-${value.id}">${value.qtd}</label> <label>x</label> 
+</div>
+
+<div class="col-md-3 py-2">
+<div class="text-center">
+<button class="btn btn-secondary" type="button" onclick="Confirmar_exclusao('${value.id}')">Excluir produto</button>
+</div> 
+</div>
+
+</div>
+`;
+            total += parseInt(value.preco) * parseInt(value.qtd);
+            $("#div-produtos").append(div);
+        }); 
+    }
+    $("#total").html("<b>Total: R$<span id='valor-total'>" + total + "</span></b>");
+}
+
+function Produto_Excluir(idproduto){
+    var produtos = JSON.parse(localStorage.getItem("produtos"));
+    var idx = produtos.findIndex(
+        function(item){
+            return item.id == idproduto;
+        }
+    );
+
+    var total = parseInt($("#valor-total").html());
+    var total_att = total - parseInt(produtos[idx].preco) * parseInt(produtos[idx].qtd);
+    $("#total").html("<b>Total: R$<span id='valor-total'>" + total_att + "</span></b>");
+
+    produtos.splice(idx , 1);
+    localStorage.setItem("produtos", JSON.stringify(produtos));
+    $(`#div-carrinho-${idproduto}`).remove(); 
+}
+
+function Confirmar_exclusao(idproduto){
+    var resposta = confirm("Tem certeza que deseja remover do carrinho?");
+    if (resposta == true) {
+        Produto_Excluir(idproduto);
+    } else {
+        return false;
+    }
+}
+
+function Get_qtd_produtos(){
+    var produtos = JSON.parse(localStorage.getItem("produtos"));
+    $.each(produtos, function( index, value ) {
+        $("#preco-" + value.id).html(value.qtd);
+    });
+}
 
 function CheckForm(form){
 
@@ -199,17 +264,6 @@ function Alert_Login(){
     alert("Faça o login para prosseguir");
 }
 
-function Produto_Excluir(idproduto){
-    var produtos = JSON.parse(localStorage.getItem("produtos"));
-    var produto_excluido = produtos.findIndex(
-        function(item){
-            return item.id == idproduto;
-        }
-    );
-    produtos.splice(produto_excluido , 1);
-    localStorage.setItem("produtos", JSON.stringify(produtos));
-    $(`#div-carrinho-${idproduto}`).remove(); 
-}
 
 function AbrirModal(){
     $("#modalLogin").modal('show');
@@ -219,53 +273,16 @@ function Excluir(idproduto){
     $('#idproduto').val(idproduto);
     document.getElementById("form_produto").submit();
 }
-
-function Get_qtd_produtos(){
-    var produtos = JSON.parse(localStorage.getItem("produtos"));
-    $.each(produtos, function( index, value ) {
-        $("#preco-" + value.id).html(value.qtd);
-    });
-}
-
-
-
-function Carregar_carrinho(){
-
-    var produtos = localStorage.getItem("produtos"); 
-    console.log(produtos);
-    if(produtos){
-
-        $.each(JSON.parse(produtos), function( index, value ) {
-            var div = `
-<div class="row mb-4" id="div-carrinho-${value.id}">
-
-
-<div class="col-md-3 text-center">
-<h2>${value.nome}</h2>
-</div>
-<div class="col-md-3 col-12 text-center py-2">
-<p><b>Valor: RS${value.preco}</b></p>
-</div>
-
-
-<div class="col-md-3 text-center py-2">
-<button class="btn btn-outline-danger tamanho" type="button" onclick="BTN_qnt(-1,'${value.id}', '${value.nome}', '${value.preco}', true) ">-</button>
-
-<button class="btn btn-outline-success tamanho" type="button" onclick="BTN_qnt(1, '${value.id}', '${value.nome}', '${value.preco}')" >+</button>
-
-<label id="preco-${value.id}">${value.qtd}</label> <label>x</label> 
-</div>
-
-<div class="col-md-3 py-2">
-<div class="text-center">
-<button class="btn btn-secondary" type="button" onclick="Produto_Excluir('${value.id}')">Excluir produto</button>
-</div> 
-</div>
-
-</div>
-`;
-            $("#div-produtos").append(div);
-        });
+function Confirmar_exclusao_adm(idproduto){
+    var resposta = confirm("Tem certeza que deseja excluir o produto?");
+    if (resposta == true) {
+        Excluir(idproduto);
+    } else {
+        return false;
     }
 }
+
+
+
+
 

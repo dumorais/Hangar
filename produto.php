@@ -16,7 +16,7 @@
         <?php include('Header.php'); ?>
 
         <?php
-        if(isset($_SESSION['nome']) && $_SESSION['categoria'] == 2){
+        if(isset($_SESSION['nome']) && $_SESSION['perfil'] == 1){
 
         ?>
         <div id="btn-cadastro" class="mt-2">
@@ -91,11 +91,11 @@
 
                             </div>
                             <?php 
-    if(isset($_SESSION['nome']) && $_SESSION['categoria'] == 2){
+    if(isset($_SESSION['nome']) && $_SESSION['perfil'] == 1){
 
                             ?>
                             <div class="col-md-12 text-center">
-                                <button class="btn btn-secondary"  type="button" onclick="Excluir(<?= $produto['idproduto'] ?>)">Excluir produto</button>
+                                <button class="btn btn-secondary"  type="button" onclick="Confirmar_exclusao_adm(<?= $produto['idproduto'] ?>)">Excluir produto</button>
                             </div>
                             <?php } ?>
                         </div>
@@ -145,7 +145,7 @@
 
                             </div>
                             <?php 
-    if(isset($_SESSION['nome']) && $_SESSION['categoria'] == 2){
+    if(isset($_SESSION['nome']) && $_SESSION['perfil'] == 1){
 
                             ?>
                             <div class="col-md-12 text-center">
@@ -194,7 +194,7 @@
 
                             </div>
                             <?php 
-    if(isset($_SESSION['nome']) && $_SESSION['categoria'] == 2){
+    if(isset($_SESSION['nome']) && $_SESSION['perfil'] == 1){
 
                             ?>
                             <div class="col-md-12 text-center">
@@ -242,7 +242,7 @@
 
                             </div>
                             <?php 
-    if(isset($_SESSION['nome']) && $_SESSION['categoria'] == 2){
+    if(isset($_SESSION['nome']) && $_SESSION['perfil'] == 1){
 
                             ?>
                             <div class="col-md-12 text-center">
@@ -291,7 +291,7 @@
 
                             </div>
                             <?php 
-                                if(isset($_SESSION['nome']) && $_SESSION['categoria'] == 2){
+                                if(isset($_SESSION['nome']) && $_SESSION['perfil'] == "A"){
 
                             ?>
                             <div class="col-md-12 text-center">

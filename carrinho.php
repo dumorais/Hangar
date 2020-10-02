@@ -25,8 +25,7 @@
 
 
 
-                <div class="total py-1" >
-                    <b>Total: R$60,00</b>
+                <div class="total px-2" id="total">
                 </div>
 
             </div>

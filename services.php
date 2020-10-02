@@ -14,5 +14,11 @@ function GetCategorias(){
     return $resultado;
 }
 
+function GetPerfil(){
+     $sql = "SELECT idperfil, descr FROM funcionario_perfil";
+    $resultado=mysqli_query(GetMysql(), $sql);
+    return $resultado;
+}
+
 
 ?>
