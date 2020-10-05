@@ -1,4 +1,6 @@
-<?php require_once 'services.php'; ?>
+<?php 
+require_once 'services.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -84,12 +86,71 @@
             </div>
         </section>
         <br>
+        
+  
+        
+        <section class="container py-3 bg-light mb-3 borda" style="margin-top: 5%;">
+            <div class="row">
+                <h1 class="center">Alterar perfil de funcionário</h1>
+                <form class="col-lg-12" action="Alterar_perfil.php" name="form_alterar" method="post">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text font-weight-bold" for="inputGroupSelect01">Nome do funcionário</label>
+                            </div>
+                            <select class="custom-select form-control" id="inputGroupSelect01" name="Nome" required>
+                                <option selected>Escolha...</option>
+                                <?php 
+                                $func = GetFunc();
+                                ?>
+
+                                <?php while($func_nome=mysqli_fetch_array($func)){ ?>
+
+                                <option value=" <?= $func_nome['idfuncionario']?>"> <?= $func_nome['nome'] ?> </option>
+
+                                <?php } ?>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text font-weight-bold" for="inputGroupSelect01">Perfil do funcionário</label>
+                            </div>
+                            <select class="custom-select form-control" id="inputGroupSelect01" name="Perfil" required>
+                                <option selected>Escolha...</option>
+                                <?php 
+                                $perfil = GetPerfil();
+                                ?>
+
+                                <?php while($funcionario=mysqli_fetch_array($perfil)){ ?>
+
+                                <option value=" <?= $funcionario['idperfil']?>"> <?= $funcionario['descr'] ?> </option>
+
+                                <?php } ?>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="center mt-3">
+                        <input type="submit" class="btn-success btn" name="btn_cadastro" value="Alterar">
+                    </div>
+                </form>
+            </div>
+        </section>
 
 
 
         <?php include('Footer.php'); ?>
 
-    
+        <?php 
+        if(isset($_SESSION['msg_func'])){
+            echo "<script>alert('" . $_SESSION['msg_func'] . "');</script>";
+            unset ($_SESSION['msg_func']);
+
+        } 
+
+        ?>
 
     </body> 
 

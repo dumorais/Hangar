@@ -11,21 +11,21 @@ $Senha = $_POST['Senha'];
 $Perfil = $_POST['Perfil'];
 
 
-$sql2 = "SELECT login FROM funcionario WHERE login = '$Login'";
+$sql2 = "( SELECT login FROM `funcionario` WHERE login = '$Login' ) UNION ALL ( select login from usuario where login = '$Login' )";
 $resultado2=mysqli_query(GetMysql(),$sql2);
 
 if($resultado2){
     $row_usuario = mysqli_fetch_assoc($resultado2);
     
     if($Login == $row_usuario['login']){
-         $_SESSION['msg_cad'] = "Já existe este login, tente outro!";
+         $_SESSION['msg_func'] = "Já existe este login, tente outro!";
     } else{
 
         $sql = "INSERT INTO funcionario (nome, idperfil, cpf, email, cargo, login, senha) VALUE ('$Nome', '$Perfil', '$CPF', '$Email', '$Cargo', '$Login', '$Senha')";
         $resultado=mysqli_query(GetMysql(),$sql);
 
         if ($resultado) {
-            echo "<script> alert ('Cadastrado com sucesso'); </script>";
+            $_SESSION['msg_func'] = "Funcionário cadastrado!";
         } else {
             echo "Erro" ;
         }

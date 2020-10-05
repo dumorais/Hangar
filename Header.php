@@ -52,7 +52,7 @@ session_start();
                     echo " <div class='text-secondary mr-0 name'> Olá, " . $_SESSION['nome'] . " </div> ";
                 }
                 if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){  ?>
-                <div class='adm text-secondary mr-4 text-center '> <p class='border border-secondary borda py-1'>adm</p> </div> 
+                <div class='adm text-secondary mr-4 text-center ml-1'> <p class='border border-secondary borda py-1'>adm</p> </div> 
                 <?php    } ?>
 
 

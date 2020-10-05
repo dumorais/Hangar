@@ -40,7 +40,7 @@
                 <div class="col-md-6 col-6">
                     <?php 
                     if(isset($_SESSION['nome'])){  ?>
-                    <a href="#"> <button class=" btn btn-outline-success"  type="submit">Confirmar compra</button> </a>
+                    <a href="finalizar_compra.php"> <button class=" btn btn-outline-success"  type="submit">Confirmar compra</button> </a>
                     <?php }else{ ?>
                     <button class=" btn btn-outline-success"  type="submit" onclick="Alert_Login()">Confirmar compra</button>
                     <?php  }?>

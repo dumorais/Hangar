@@ -20,5 +20,11 @@ function GetPerfil(){
     return $resultado;
 }
 
+function GetFunc(){
+     $sql = "SELECT nome, idfuncionario FROM funcionario";
+    $resultado=mysqli_query(GetMysql(), $sql);
+    return $resultado;
+}
+
 
 ?>

@@ -16,7 +16,7 @@
         <?php include('Header.php'); ?>
 
         <?php
-        if(isset($_SESSION['nome']) && $_SESSION['perfil'] == 1){
+        if(isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){
 
         ?>
         <div id="btn-cadastro" class="mt-2">
@@ -91,7 +91,7 @@
 
                             </div>
                             <?php 
-    if(isset($_SESSION['nome']) && $_SESSION['perfil'] == 1){
+    if(isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){
 
                             ?>
                             <div class="col-md-12 text-center">
@@ -145,7 +145,7 @@
 
                             </div>
                             <?php 
-    if(isset($_SESSION['nome']) && $_SESSION['perfil'] == 1){
+    if(isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){
 
                             ?>
                             <div class="col-md-12 text-center">
@@ -194,7 +194,7 @@
 
                             </div>
                             <?php 
-    if(isset($_SESSION['nome']) && $_SESSION['perfil'] == 1){
+    if(isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){
 
                             ?>
                             <div class="col-md-12 text-center">
@@ -242,7 +242,7 @@
 
                             </div>
                             <?php 
-    if(isset($_SESSION['nome']) && $_SESSION['perfil'] == 1){
+    if(isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){
 
                             ?>
                             <div class="col-md-12 text-center">
