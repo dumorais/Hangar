@@ -1,13 +1,14 @@
+<?php 
+session_start();
+require_once 'services.php';
+if(empty($_SESSION['nome'])){
+    header("Location: carrinho.php");
+}
+
+?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Hangar 764</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="css/bootstrap.css">
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
+
 
     <body>
 
@@ -19,12 +20,13 @@
 
         <!-- Containers -->
 
-        <a href="carrinho.php"> <i class="fa fa-arrow-circle-left py-2 ml-4" aria-hidden="true" style="color: white; font-size:45px;"> </i> </a>
+
+        <a href="carrinho.php"> <i class="fa fa-arrow-circle-left py-2 ml-4 sticky-top" aria-hidden="true" style="color: white; font-size:45px;"> </i> </a>
 
         <section class="container py-3 bg-light mt-3 borda">
             <div class="row">
                 <h1 class="center">Preencha os dados do pedido!</h1>
-                <form class="col-lg-12" action="cadastro_funcionario_Bd.php" name="form_funcionario" method="post" onsubmit="return CheckDados(this)">
+                <form class="col-lg-12" action="finalizar.php" name="form_finalizar" method="post">
 
 
                     <div class="form-row">
@@ -45,7 +47,7 @@
 
                         <div class="form-group font-weight-bold col-md-6">
                             <label for="inputTel">CEP</label>
-                            <input type="text" class="form-control" id="inputCargo" name="Cargo" required>
+                            <input type="text" class="form-control" id="inputCEP" name="Cargo" required>
                         </div>
 
                         <div class="form-group font-weight-bold col-md-6">
@@ -57,17 +59,22 @@
                             <div class="input-group-prepend">
                                 <label class="input-group-text font-weight-bold" for="inputGroupSelect01">Forma de pagamento</label>
                             </div>
-                            <select class="custom-select form-control" id="inputGroupSelect01" name="Perfil" required> 
+                            <select class="custom-select form-control" id="inputGroupSelect01" name="pagamento" required>
                                 <option selected>Escolha...</option>
+                                <?php 
+                                $pagamento = GetPag();
+                                ?>
 
+                                <?php while($Pag=mysqli_fetch_array($pagamento)){ ?>
 
+                                <option value=" <?= $Pag['idpagamento']?>"> <?= $Pag['formapagamento'] ?> </option>
+
+                                <?php } ?>
 
                             </select>
-
-
                         </div>
                     </div>
-                     <center> <button class=" btn btn-success"  type="submit" onclick="Alert_Login()">Finalizar compra</button> </center>
+                    <center> <button class=" btn btn-success"  type="submit" onclick="Alert_Login()">Finalizar compra</button> </center>
                 </form>
             </div>
 
@@ -84,7 +91,13 @@
         <?php include('Footer.php'); ?>
 
 
+
     </body>
+    
+    <script>
+         $('#inputCEP').mask("99999-999");
+    
+    </script>
 
 
 </html>

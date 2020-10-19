@@ -15,16 +15,21 @@ function GetCategorias(){
 }
 
 function GetPerfil(){
-     $sql = "SELECT idperfil, descr FROM funcionario_perfil";
+    $sql = "SELECT idperfil, descr FROM funcionario_perfil";
     $resultado=mysqli_query(GetMysql(), $sql);
     return $resultado;
 }
 
 function GetFunc(){
-     $sql = "SELECT nome, idfuncionario FROM funcionario";
+    $sql = "SELECT nome, idfuncionario FROM funcionario";
     $resultado=mysqli_query(GetMysql(), $sql);
     return $resultado;
 }
 
+function GetPag(){
+    $sql = "SELECT formapagamento, idpagamento FROM pagamento";
+    $resultado=mysqli_query(GetMysql(), $sql);
+    return $resultado;
+}
 
 ?>

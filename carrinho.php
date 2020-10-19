@@ -2,13 +2,7 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>Hangar 764</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
+  
 
     <body>
         <?php include('Header.php'); ?>
@@ -67,7 +61,14 @@
                 Carregar_carrinho();
             });
         </script>
-
+        
+        <?php
+        if(isset($_SESSION['msg'])){
+            echo "<script>alert('" . $_SESSION['msg'] . "');</script>";
+            echo "<script> AbrirModal() </script>";
+            unset ($_SESSION['msg']);
+        }
+        ?>
 
     </body>
 

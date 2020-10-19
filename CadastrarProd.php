@@ -1,19 +1,12 @@
 <?php require_once 'services.php'; ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Hangar 764</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
+  
 
     <body>
        <?php include('Header.php'); ?>
 
-        <a href="produto.php"> <i class="fa fa-arrow-circle-left py-2 ml-4" aria-hidden="true" style="color: white; font-size:45px;"> </i> </a>
+        <a href="produto.php"> <i class="fa fa-arrow-circle-left py-2 ml-4 sticky-top" aria-hidden="true" style="color: white; font-size:45px;"> </i> </a>
 
         <!-- Cadastrar os produtos -->
         <form class="form py-3 mb-3 mt-3 row borda" name="formulario_prod" action="Insert.php" method="post">
