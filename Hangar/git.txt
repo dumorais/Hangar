@@ -1,0 +1,8 @@
+iniciar um projeto - git init
+git remote add origin github.com/dumorais/Hangar - sincronizar com o github
+git clone "url" - pegas os arquivos
+git add . (add todos os arquivos) ou git add "nome do arquivo" - adicionar os arquivos no pacote para subir
+git commit -m "Inicio do projeto" - criar commit
+git push - envia as alterações
+
+
