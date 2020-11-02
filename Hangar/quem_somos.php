@@ -42,7 +42,7 @@
             </div>
         </div>
 
-        <div class="col-12 Google text-center">
+        <div class="col-12 Google text-center mt-4">
             <iframe class="Maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1007.5171510978643!2d-46.55669796886949!3d-23.618949278672694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5cdfa0a8e453%3A0x317e0da3ff0195c4!2sHangar%20764!5e0!3m2!1spt-BR!2sbr!4v1594674617160!5m2!1spt-BR!2sbr" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </div>
 

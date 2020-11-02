@@ -16,7 +16,9 @@ if ($conn->query($sql) === TRUE) {
         $sql = "INSERT INTO pedido_produto (idpedido,idproduto, quantidade, preco) VALUE ('" . $idpedido . "', '" . $produto['id'] . "','" . $produto['qtd'] . "', '" . $produto['preco'] . "')";
         $conn->query($sql);
     }
+    $_SESSION['idpedido'] = $idpedido;
     $retorno = "Compra finalizada!";
+    header ("Location: Detalhes.php");
 } else {
     $retorno = "Erro ao finalizar compra.";
 } 

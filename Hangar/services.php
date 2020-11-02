@@ -38,5 +38,14 @@ function GetEnde(){
     return $resultado;
 }
 
+function GetPedido(){
+    $sql = "SELECT produto, pp.preco, quantidade FROM `pedido_produto` pp INNER JOIN produtos p ON p.idproduto = pp.idproduto WHERE idpedido = '" . $_SESSION['idpedido'] . "'";
+    
+    $sql2 = "SELECT rua, numero, bairro, complemento, cep, horario, (SELECT SUM(preco) FROM pedido_produto pp WHERE pp.idpedido = p.idpedido) as total FROM `pedido` p INNER JOIN endereco e ON p.idendereco = e.idendereco WHERE idpedido = '" . $_SESSION['idpedido'] . "'";
+    
+    $resultado['produtos']=mysqli_query(GetMysql(), $sql);
+    $resultado['pedido']=mysqli_query(GetMysql(), $sql2);
+    return $resultado;
+}
 
 ?>
