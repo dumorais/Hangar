@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-md-6 col-12 bg-light py-4 borda mt-3">
                     <div class="">
-                        <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elit odio, dapibus in pharetra vitae, ornare ac risus. Vivamus arcu nibh, porta eget viverra et, pharetra eget nibh. Donec nisl eros, rhoncus eget mauris a, aliquam congue dolor. Etiam eleifend ipsum at purus auctor porttitor. Aliquam erat volutpat. Quisque nisl elit, interdum non quam sed, ullamcorper volutpat ante. Vestibulum at suscipit odio. Maecenas in tincidunt dui. Quisque dignissim quam ac ante aliquet, et aliquet sem lacinia. Nulla mollis turpis eros, eget mattis magna luctus imperdiet. Vestibulum vulputate, diam vel semper pharetra, urna nunc ornare est, in tincidunt diam leo in tortor. Etiam ornare luctus sagittis.</label>
+                        <label>Bem vindo! Nos somos o Hangar 764, uma empresa que já está no mercado há 13 anos e possuímos diversas premiações de revistas de São Caetano do Sul. Nós funcionamos como um bar, servimos lanches, porções, mas somos mais especializados em cerveja. Nosso bar é mais estilizado para o Rock n' Roll, sendo assim, as músicas e DVDs são puxados para este estilo musical. Também passamos diversos esportes diferentes no nosso telão, desde futebol, até futebol americano e UFC. Estamos parados por conta da pandemia, mas quando tudo voltar, espero vê-los aqui!</label>
 
                     </div>
                 </div>
@@ -42,7 +42,7 @@
             </div>
         </div>
 
-        <div class="col-12 Google text-center">
+        <div class="col-12 Google text-center mt-4">
             <iframe class="Maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1007.5171510978643!2d-46.55669796886949!3d-23.618949278672694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5cdfa0a8e453%3A0x317e0da3ff0195c4!2sHangar%20764!5e0!3m2!1spt-BR!2sbr!4v1594674617160!5m2!1spt-BR!2sbr" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </div>
 

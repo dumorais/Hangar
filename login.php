@@ -6,7 +6,7 @@ session_start();
 $Login = $_POST['Login'];
 $Senha = $_POST['Senha'];
 
-$sql = "SELECT login, senha, nome FROM usuario WHERE login = '$Login' AND senha = '$Senha'";
+$sql = "SELECT login, senha, nome, idusuario FROM usuario WHERE login = '$Login' AND senha = '$Senha'";
 
 $resultado=mysqli_query(GetMysql(),$sql);
  $row_usuario = mysqli_fetch_assoc($resultado);
@@ -15,6 +15,7 @@ if($row_usuario['login']){
     
         $_SESSION['login'] = $row_usuario['login'];
         $_SESSION['nome'] = $row_usuario['nome'];
+        $_SESSION['idusuario'] = $row_usuario['idusuario'];
     
 }else{
     $sql_func = "SELECT login, senha, nome, idperfil FROM funcionario WHERE login = '$Login' AND senha = '$Senha'";

@@ -282,7 +282,57 @@ function Confirmar_exclusao_adm(idproduto){
     }
 }
 
+function goBack() {
+    window.history.back()
+}
 
+function Ende_selecionado(select){
+    $("#inputRua").val($(select).find(':selected').data('rua'));
+    $("#inputNum").val($(select).find(':selected').data('num'));
+    $("#inputBairro").val($(select).find(':selected').data('bairro'));
+    $("#inputCEP").val($(select).find(':selected').data('cep'));
+    $("#inputComp").val($(select).find(':selected').data('comp'));
+}
+
+function troco(select){
+                console.log($(select).find(':selected').data('troco'));
+                if($(select).find(':selected').data('troco') == 1){
+                    $('#divTroco').show();
+                }else{
+                    $('#divTroco').hide();
+                }
+            }
+
+ function Finalizar_compra(){
+
+                var arr_produtos = [];
+                var produtos = localStorage.getItem("produtos");
+
+
+                arr_data = {
+                    produtos: produtos,
+                    forma_pagamento: $("#inputPagamento").val(),
+                    endereco: $("#inputEndereco").val(),
+                    troco: $('#inputTroco').val()
+                };
+
+                $.ajax({
+                    url: "Finalizar_compra.php",
+                    type: "post",
+                    data: {
+                        'action': "exec_find",
+                        'data': arr_data
+                    },
+                    success: function(result) {
+                        localStorage.clear();
+                        alert (result);
+                        document.location.reload();
+                    },
+                    error: function(log) {
+                        // handle error
+                    }
+                });
+            } 
 
 
 

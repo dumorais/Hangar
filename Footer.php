@@ -6,7 +6,7 @@
                 <ul class="list-unstyled text-secondary">
                     <li>Email: Hangar@gmail.com</li>
                     <li>Fone: 11 4564-3940</li>
-                    <li>De Seg. à Sex. das 8h às 18h</li>
+                    <li>De Qua. à Dom. das 15h às 01h</li>
                 </ul>
             </div>
             <div class="col-md-4 col-6 ">

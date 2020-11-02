@@ -284,7 +284,7 @@
 
                             </div>
                             <?php 
-                                if(isset($_SESSION['nome']) && $_SESSION['perfil'] == "A"){
+                                if(isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){
 
                             ?>
                             <div class="col-md-12 text-center">

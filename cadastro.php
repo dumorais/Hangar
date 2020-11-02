@@ -54,7 +54,7 @@
                     </div>
 
                     <div class="center">
-                        <input type="submit" class="btn-success btn" name="btn_cadastro" value="Cadastrar">
+                       <input type="submit" class="btn-success btn" name="btn_cadastro" value="Cadastrar"> 
                     </div>
 
                 </form>

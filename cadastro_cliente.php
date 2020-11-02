@@ -9,10 +9,10 @@ $Telefone = $_POST['Telefone'];
 $Dtnasc = $_POST['Dtnasc'];
 $Login = $_POST['Login'];
 $Senha = $_POST['Senha'];
-$Perfil = $_POST['Perfil'];
 
 
-$sql2 = "SELECT login FROM usuario WHERE login = '$Login'";
+
+$sql2 = "SELECT login, idusuario FROM usuario WHERE login = '$Login'";
 $resultado2=mysqli_query(GetMysql(),$sql2);
 
 if($resultado2){
@@ -22,18 +22,20 @@ if($resultado2){
          $_SESSION['msg_cad'] = "Já existe este login, tente outro!";
     } else{
 
-        $sql = "INSERT INTO usuario (nome, telefone, email, Dtnasc, cpf, idperfil, login, senha) VALUE ('$Nome', '$Telefone', '$Email', '$Dtnasc', '$CPF', '$Login', '$Senha')";
+        $sql = "INSERT INTO usuario (nome, telefone, email, Dtnasc, cpf, login, senha) VALUE ('$Nome', '$Telefone', '$Email', '$Dtnasc', '$CPF', '$Login', '$Senha')";
         $resultado=mysqli_query(GetMysql(),$sql);
 
         if ($resultado) {
-            echo "<script> alert ('Cadastrado com sucesso'); </script>";
+            $query = mysqli_query(GetMysql(),$sql2);
+             $usuario_cadastrado = mysqli_fetch_assoc($query);
+            $_SESSION['idusuario'] = $usuario_cadastrado['idusuario'];
         } else {
             echo "Erro" ;
         }
     }
 }
+    header ("Location: cadastro_endereço.php")
 
-
-    header("Location: ".$_SERVER['HTTP_REFERER']);
+   
 
 ?>
