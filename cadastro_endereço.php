@@ -1,6 +1,8 @@
 <?php 
 session_start();
+//inicia uma nova sessão ou resume uma sessão existente
 require_once 'services.php';
+//Puxando a página services onde está as funções do php
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,7 +11,9 @@ require_once 'services.php';
     <body>
 
 
-        <?php include('Header.php'); ?>
+        <?php include('Header.php'); 
+        //Puxando o header pelo php
+        ?>
 
 
 
@@ -67,7 +71,9 @@ require_once 'services.php';
         <br>
 
 
-        <?php include('Footer.php'); ?>
+        <?php include('Footer.php'); 
+        //Puxando o footer pelo php
+        ?>
 
 
 
@@ -75,7 +81,7 @@ require_once 'services.php';
     
     <script>
          $('#inputCEP').mask("99999-999");
-    
+        //Fazendo a máscara do cep
     </script>
 
 

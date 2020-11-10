@@ -1,15 +1,21 @@
-<?php require_once 'conexao.php'; ?>
+<?php require_once 'conexao.php'; 
+//puxando a conexão do banco de dados
+?>
 
 <?php 
 session_start();
+//inicia uma nova sessão ou resume uma sessão existente
 
 
 $date = new DateTime("now", new DateTimeZone('America/Sao_Paulo'));
-$sql = "INSERT INTO pedido (idusuario, idendereco, idpagamento, troco, horario) VALUE ('" . $_SESSION['idusuario'] . "', '" . $_POST['data']['endereco'] . "', '" . $_POST['data']['forma_pagamento'] . "', '" . $_POST['data']['troco'] . "', '" . $date->format('Y-m-d H:i:s') . "')";
-//$resultado=mysqli_query(GetMysql(),$sql);
+//Pegando a data e a hora no servidor
 
-$retorno = "Compra finalizada!";
+$sql = "INSERT INTO pedido (idusuario, idendereco, idpagamento, troco, horario) VALUE ('" . $_SESSION['idusuario'] . "', '" . $_POST['data']['endereco'] . "', '" . $_POST['data']['forma_pagamento'] . "', '" . $_POST['data']['troco'] . "', '" . $date->format('Y-m-d H:i:s') . "')";
+//Inserindo na tabela pedido o id do usuario, o id do endereço, o id do pagamento, o troco e o horario do usuário que fez o pedido
+
 $conn = GetMysql();
+//Colocando a conexão com o banco na variável conn
+
 if ($conn->query($sql) === TRUE) {
     $idpedido = $conn->insert_id; 
     foreach (json_decode($_POST['data']['produtos'], true) as &$produto) {
@@ -17,12 +23,13 @@ if ($conn->query($sql) === TRUE) {
         $conn->query($sql);
     }
     $_SESSION['idpedido'] = $idpedido;
-    $retorno = "Compra finalizada!";
-    header ("Location: Detalhes.php");
+    $_SESSION['msg'] = "Compra finalizada!";
+    //Se for verdadeiro coloca o id do pedido na session e joga uma mensagem na session dizendo que a compra foi finalizada
 } else {
-    $retorno = "Erro ao finalizar compra.";
+   echo "<script> alert('Erro ao finalizar compra!');</script>";
+    //Se não exibe uma mensagem de erro
 } 
 
-echo json_encode($retorno);
+
 
 ?>

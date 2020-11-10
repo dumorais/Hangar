@@ -1,13 +1,16 @@
 <?php 
 require_once 'services.php';
+//Puxando a página services onde está as funções do php
 ?>
 <!DOCTYPE html>
 <html>
-   
+
 
     <body>
 
-        <?php include('Header.php'); ?>
+        <?php include('Header.php'); 
+        //Puxando o header pelo php
+        ?>
 
         <section class="container py-3 bg-light mt-3 borda">
             <div class="row">
@@ -58,12 +61,15 @@ require_once 'services.php';
                                 <option selected>Escolha...</option>
                                 <?php 
                                 $perfil = GetPerfil();
+                                //Puxando a função GetPerfil para pegar os perfis dos funcionários cadastrados
                                 ?>
 
-                                <?php while($funcionario=mysqli_fetch_array($perfil)){ ?>
+                                <?php while($funcionario=mysqli_fetch_array($perfil)){ 
+    //Enquanto tiver categorias fazer isso:
+                                ?>
 
                                 <option value=" <?= $funcionario['idperfil']?>"> <?= $funcionario['descr'] ?> </option>
-
+                                <!--Criando as options onde o valor dela é o id do perfil e as opções são as descrições do perfil -->
                                 <?php } ?>
 
                             </select>
@@ -80,9 +86,9 @@ require_once 'services.php';
             </div>
         </section>
         <br>
-        
-  
-        
+
+
+
         <section class="container py-3 bg-light mb-3 borda" style="margin-top: 5%;">
             <div class="row">
                 <h1 class="center">Alterar perfil de funcionário</h1>
@@ -96,11 +102,15 @@ require_once 'services.php';
                                 <option selected>Escolha...</option>
                                 <?php 
                                 $func = GetFunc();
+                                //Puxando a função GetFunc para pegar os nomes dos funcionários cadastrados
                                 ?>
 
-                                <?php while($func_nome=mysqli_fetch_array($func)){ ?>
+                                <?php while($func_nome=mysqli_fetch_array($func)){ 
+                                //Enquanto tiver funcionários fazer isso:
+                                ?>
 
                                 <option value=" <?= $func_nome['idfuncionario']?>"> <?= $func_nome['nome'] ?> </option>
+                                <!--Criando as option onde o value é o id do funcionário e as opções são os nomes do mesmo -->
 
                                 <?php } ?>
 
@@ -115,11 +125,16 @@ require_once 'services.php';
                                 <option selected>Escolha...</option>
                                 <?php 
                                 $perfil = GetPerfil();
+                                //Puxando a função GetFunc para pegar os nomes dos funcionários cadastrados
                                 ?>
 
-                                <?php while($funcionario=mysqli_fetch_array($perfil)){ ?>
+                                <?php while($funcionario=mysqli_fetch_array($perfil)){ 
+                                //Enquanto tiver perfis fazer isso:
+
+                                ?>
 
                                 <option value=" <?= $funcionario['idperfil']?>"> <?= $funcionario['descr'] ?> </option>
+                                <!--Criando as option onde o value é o id do perfil e as opções são as descrições do perfil -->
 
                                 <?php } ?>
 
@@ -135,12 +150,15 @@ require_once 'services.php';
 
 
 
-        <?php include('Footer.php'); ?>
+        <?php include('Footer.php'); 
+        //Puxando o footer pelo php
+        ?>
 
         <?php 
         if(isset($_SESSION['msg_func'])){
             echo "<script>alert('" . $_SESSION['msg_func'] . "');</script>";
             unset ($_SESSION['msg_func']);
+            //Vendo se a session msg_func existe, se existir mostrar a mensagem e depois apaga ela da session
 
         } 
 

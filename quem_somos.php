@@ -2,8 +2,10 @@
 <html>
 
     <body>
-        <?php include('Header.php'); ?>
-        
+        <?php include('Header.php'); 
+        //Puxando o header pelo php
+        ?>
+
         <!-- Containers -->
 
         <div class="container">
@@ -51,7 +53,9 @@
 
         <!-- Footer do Site -->
 
-         <?php include('Footer.php'); ?>
+        <?php include('Footer.php'); 
+        //Puxando o footer pelo php
+        ?>
 
 
 

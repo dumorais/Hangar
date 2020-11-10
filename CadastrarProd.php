@@ -1,10 +1,14 @@
-<?php require_once 'services.php'; ?>
+<?php require_once 'services.php'; 
+//Puxando a página services onde está as funções do php
+?>
 <!DOCTYPE html>
 <html>
-  
+
 
     <body>
-       <?php include('Header.php'); ?>
+        <?php include('Header.php'); 
+        //Puxando o header pelo php
+        ?>
 
         <a href="produto.php"> <i class="fa fa-arrow-circle-left py-2 ml-4 sticky-top" aria-hidden="true" style="color: white; font-size:45px;"> </i> </a>
 
@@ -24,11 +28,15 @@
                     <option selected>Escolha...</option>
                     <?php 
                     $categorias = GetCategorias();
+                    //Puxanso a função GetCategorias para pegar as categorias cadastradas no banco
                     ?>
 
-                    <?php while($produto=mysqli_fetch_array($categorias)){ ?>
+                    <?php while($produto=mysqli_fetch_array($categorias)){ 
+    //Enquanto tiver categorias na tabela fazer isso:
+                    ?>
 
                     <option value=" <?= $produto['idcategoria']?>"> <?= $produto['descr'] ?> </option>
+                    <!--Criando as options que o value é o id da categoria e as opções são a descrição das categorias -->
 
                     <?php } ?>
 
@@ -55,15 +63,17 @@
 
         <!-- Footer do Site -->
 
-         <?php include('Footer.php'); ?>
+        <?php include('Footer.php'); 
+        //Puxando o footer pelo php
+        ?>
 
-         <?php 
+        <?php 
         if(isset($_SESSION['msg_prod'])){
             echo "<script>alert('" . $_SESSION['msg_prod'] . "');</script>";
             unset ($_SESSION['msg_prod']);
-            
+            //Vendo se a session msg_prod existe, se existir mostrar a mensagem e depois apaga ela da session
         } 
-    
+
         ?>
 
     </body> 

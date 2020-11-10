@@ -4,7 +4,9 @@
 
     <body>
 
-        <?php include('Header.php'); ?>
+        <?php include('Header.php'); 
+        //Puxando o header pelo php
+        ?>
 
         <!-- Carrossel da Home -->
 
@@ -21,8 +23,8 @@
                         <div class="carousel-item active mx-auto">
                             <img src="img/burger.jpg" class="d-block w-100 image" alt="...">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Temos diversos hambúrguers!</h5>
-                                <p>Nossos hambúrgues são 100% artesanais, são feitos na nossa conzinha!</p>
+                                    <h5>Temos diversos hambúrguers!</h5>
+                                    <p>Nossos hambúrgues são 100% artesanais, são feitos na nossa conzinha!</p>
                             </div>
                         </div>
                         <div class="carousel-item mx-auto">
@@ -53,14 +55,16 @@
 
                 <!-- Container da Home -->
 
-               
+
 
             </div>
         </div>
 
         <!-- Footer do Site -->
 
-        <?php include('Footer.php'); ?>
+        <?php include('Footer.php'); 
+        //Puxando o footer pelo php
+        ?>
 
     </body> 
 

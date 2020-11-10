@@ -1,5 +1,6 @@
 <?php 
 session_start();
+//inicia uma nova sessão ou resume uma sessão existente
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,7 +34,7 @@ session_start();
 
                 <ul class="navbar-nav">  
                     <li class="nav-item">
-                        <a class="nav-link " href="index.php">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="produto.php">Cardápio</a>
@@ -41,7 +42,9 @@ session_start();
                     <li class="nav-item ">
                         <a class="nav-link" href="quem_somos.php">Quem somos</a>
                     </li>
-                    <?php if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){  ?>
+                    <?php if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){  
+                        //vendo se a session perfil existe e se ela é igual a 1 
+                    ?>
                     <li class="nav-item">
                         <a class="nav-link" href="cadastro_funcionario.php">Cadastro funcionário</a>
                     </li>
@@ -51,8 +54,11 @@ session_start();
                 <?php 
                 if(isset($_SESSION['nome'])){
                     echo " <div class='text-secondary mr-0 name'> Olá, " . $_SESSION['nome'] . " </div> ";
+                    //Vendo se a session nome existe, se sim mostrar ela no menu com o nome do usuário
                 }
-                if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){  ?>
+                if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){  
+                    //vendo se a session perfil existe e se ela é igual a 1 
+                ?>
                 <div class='adm text-secondary mr-4 text-center ml-1'> <p class='border border-secondary borda py-1'>adm</p> </div> 
                 <?php    } ?>
 
@@ -64,7 +70,9 @@ session_start();
                 <form class="navbar-brand" action="logout.php">
 
                     <?php 
-                    if(isset($_SESSION['nome'])){ ?>
+                    if(isset($_SESSION['nome'])){ 
+                        //Vendo se a session nome existe
+                    ?>
                     <button class="btn btn-outline-secondary"  type="submit">Logout </button>
                     <?php   }else{ ?>
                     <button class="btn btn-outline-secondary" data-toggle="modal" data-target="#modalLogin" type="button">Login </button>
@@ -110,9 +118,9 @@ session_start();
 
         <!--<script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script> -->
         <script
-  src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-  crossorigin="anonymous"></script>
+                src="https://code.jquery.com/jquery-3.5.1.min.js"
+                integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+                crossorigin="anonymous"></script>
         <script type="text/javascript" src="js/popper.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
@@ -123,7 +131,9 @@ session_start();
         if(isset($_SESSION['msg_login'])){
             echo "<script>alert('" . $_SESSION['msg_login'] . "');</script>";
             unset ($_SESSION['msg_login']);
+            //Vendo se a session msg_login existe, se existir mostrar a mensagem e depois apaga ela da session
             echo "<script> AbrirModal() </script>";
+            //Puxando a function AbrirModal que faz com que o modal do login abra
 
         } 
 

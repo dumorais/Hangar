@@ -1,11 +1,15 @@
-<?php require_once 'services.php'; ?>
+<?php require_once 'services.php'; 
+//Puxando a página services onde está as funções do php
+?>
 <!DOCTYPE html>
 <html>
 
 
 
     <body>
-        <?php include('Header.php'); ?>
+        <?php include('Header.php'); 
+        //Puxando o header pelo php
+        ?>
 
         <!-- Produto escolhido -->
 
@@ -34,7 +38,9 @@
 
                     <div class="col-md-6 col-6">
                         <?php 
-                        if(isset($_SESSION['nome'])){  ?>
+                        if(isset($_SESSION['nome'])){  
+                            //Vendo se a session nome existe
+                        ?>
                         <button class=" btn btn-outline-success" data-toggle="modal" data-target="#modalCompra" type="button">Confirmar compra</button> 
                         <?php }else{ ?>
                         <button class=" btn btn-outline-success"  type="button" onclick="Alert_Login()">Confirmar compra</button>
@@ -63,9 +69,12 @@
                                     <option selected>Escolha...</option>
                                     <?php 
                                     $ende = GetEnde();
+                                    //Puxando a função getEnde para pegar os endereços cadastrados no banco de dados
                                     ?>
 
-                                    <?php while($enderecos=mysqli_fetch_array($ende)){ ?>
+                                    <?php while($enderecos=mysqli_fetch_array($ende)){ 
+    //Enquanto tiver endereços na tabela fazer isso:
+                                    ?>
 
                                     <option data-rua="<?= $enderecos['rua']?>" data-num="<?= $enderecos['numero']?>" data-bairro="<?= $enderecos['bairro']?>" data-cep="<?= $enderecos['cep']?>" data-comp="<?= $enderecos['complemento']?>" value=" <?= $enderecos['idendereco']?>"> <?= $enderecos['rua']?>,  <?= $enderecos['numero']?> </option>
 
@@ -106,9 +115,12 @@
                                     <option selected>Escolha...</option>
                                     <?php 
                                     $pag = GetPag();
+                                    //Puxando a função GetPag para pegar as formas de pagamento cadastradas
                                     ?>
 
-                                    <?php while($forma=mysqli_fetch_array($pag)){ ?>
+                                    <?php while($forma=mysqli_fetch_array($pag)){ 
+    //enquanto tiver formas de pagamento fazer isso:
+                                    ?>
 
                                     <option data-troco=" <?= $forma['idpagamento']?>"  value=" <?= $forma['idpagamento']?>"> <?= $forma['formapagamento'] ?> </option>
 
@@ -141,22 +153,25 @@
 
         <!-- Footer do Site -->
 
-        <?php include('Footer.php'); ?>
+        <?php include('Footer.php'); 
+        //Puxando o footer pelo php
+        ?>
 
 
         <?php 
         if(isset($_SESSION['msg_endereco'])){
             echo "<script>alert('" . $_SESSION['msg_endereco'] . "');</script>";
             unset ($_SESSION['msg_endereco']);
-
+            //Vendo se a session msg_endereco existe, se existir mostrar a mensagem e depois apaga ela da session
         } ?>
 
         <script>
             $(function () {
                 Carregar_carrinho();
+                //Puxando a função Carregar_carrinho para mostrar os produtos que o usuário escolheu
             });
 
-           
+
 
 
         </script>

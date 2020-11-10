@@ -325,8 +325,7 @@ function troco(select){
                     },
                     success: function(result) {
                         localStorage.clear();
-                        alert (result);
-                        document.location.reload();
+                        window.location.href = "Detalhes.php";
                     },
                     error: function(log) {
                         // handle error

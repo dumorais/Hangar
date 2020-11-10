@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 
-   
+
     <body>
 
         <?php
         include('Header.php');
-
+        //Puxando o header pelo php
 
         ?>
 
@@ -54,7 +54,7 @@
                     </div>
 
                     <div class="center">
-                       <input type="submit" class="btn-success btn" name="btn_cadastro" value="Cadastrar"> 
+                        <input type="submit" class="btn-success btn" name="btn_cadastro" value="Cadastrar"> 
                     </div>
 
                 </form>
@@ -64,7 +64,9 @@
         <br>
 
         <!-- Footer do Site -->
-        <?php include('Footer.php'); ?>
+        <?php include('Footer.php'); 
+        //Puxando o footer pelo php
+        ?>
 
 
 
@@ -74,18 +76,20 @@
         if(isset($_SESSION['msg_cad'])){
             echo "<script>alert('" . $_SESSION['msg_cad'] . "');</script>";
             unset ($_SESSION['msg_cad']);
+            //Vendo se a session msg_cad existe, se existir mostrar a mensagem e depois apaga ela da session
         } 
 
         ?>    
 
     </body>
 
-    
+
 
     <script>
 
         $('#inputCPF').mask("999.999.999-99");
         $('#inputTel').mask("(99) 99999-9999");
+        //Fazendo a máscara do cpf e do telefone
 
 
     </script>

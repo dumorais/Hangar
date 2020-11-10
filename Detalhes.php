@@ -1,5 +1,6 @@
 <?php 
 require_once 'services.php';
+//Puxando a página services onde está as funções do php
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,8 +9,9 @@ require_once 'services.php';
     <body>
 
         <?php include('Header.php'); 
-
+        //Puxando o header pelo php
         $detalhes = GetPedido();
+        //Puxando a função GetPedido para pegar o pedido que o usuário fez
         $pedido = mysqli_fetch_array($detalhes['pedido']);
         ?>
 
@@ -41,8 +43,16 @@ require_once 'services.php';
         </div>
 
 
-        <?php include('Footer.php'); ?>
+        <?php include('Footer.php'); 
+        //Puxando o footer pelo php
+        ?>
 
+        <?php 
+        if(isset($_SESSION['msg'])){
+            echo "<script>alert('" . $_SESSION['msg'] . "');</script>";
+            unset ($_SESSION['msg']);
+            //Vendo se a session msg existe, se existir mostrar a mensagem e depois apaga ela da session
+        } ?>
 
     </body>
 </html>

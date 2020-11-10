@@ -1,4 +1,6 @@
-<?php require_once 'services.php'; ?>
+<?php require_once 'services.php'; 
+//Puxando a página services onde está as funções do php
+?>
 
 <!DOCTYPE html>
 <html>
@@ -6,11 +8,13 @@
 
 
     <body>
-        <?php include('Header.php'); ?>
+        <?php include('Header.php'); 
+        //Puxando o header pelo php
+        ?>
 
         <?php
         if(isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){
-
+            //vendo se a session perfil existe e se ela é igual a 1 
         ?>
         <div id="btn-cadastro" class="mt-2">
             <a href="CadastrarProd.php"> <button class="btn btn-outline-secondary ml-3">Clique aqui para cadastrar os produtos</button> </a>
@@ -56,12 +60,15 @@
             <div class="bg-white borda py-4 mb-2" id="card-hamburgueres" >
                 <?php 
                 $hamburgueres = GetProdutos(2);
+                //Puxando a funtion GetProdutos que pega os produtos cadastrados na tabela e passando a categoria 2
                 ?>
 
                 <form action="excluir_produto.php" id="form_produto" method="post" name="form_excluir">
                     <input hidden id="idproduto" name="idproduto">
 
-                    <?php while($produto=mysqli_fetch_array($hamburgueres)){ ?>
+                    <?php while($produto=mysqli_fetch_array($hamburgueres)){ 
+                        //Enquanto tiver produtos na tabela fazer isso:
+                    ?>
 
                     <div class="row mb-4">
 
@@ -84,8 +91,8 @@
 
                             </div>
                             <?php 
-    if(isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){
-
+                        if(isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){
+                            //vendo se a session perfil existe e se ela é igual a 1 
                             ?>
                             <div class="col-md-12 text-center">
                                 <button class="btn btn-secondary"  type="button" onclick="Confirmar_exclusao_adm(<?= $produto['idproduto'] ?>)">Excluir produto</button>
@@ -110,12 +117,15 @@
             <div class="bg-white borda py-4 mb-2" id="card-lanche" style="display: none">
                 <?php 
                 $lanches = GetProdutos(3);
+                 //Puxando a funtion GetProdutos que pega os produtos cadastrados na tabela e passando a categoria 3
                 ?>
 
                 <form action="excluir_produto.php" id="form_produto" method="post" name="form_excluir">
                     <input hidden id="idproduto" name="idproduto">
 
-                    <?php while($produto=mysqli_fetch_array($lanches)){ ?>
+                    <?php while($produto=mysqli_fetch_array($lanches)){ 
+                     //Enquanto tiver produtos na tabela fazer isso:
+                    ?>
 
                     <div class="row mb-4">
 
@@ -129,7 +139,7 @@
                                 <label class="text-center"><?= $produto['descr'] ?> - <b>R$<?= number_format($produto['preco'],2) ?></b></label> 
                                 <br>
                             </div>
-                           <div class="col-md-12 text-center py-3">
+                            <div class="col-md-12 text-center py-3">
                                 <button class="btn btn-outline-danger tamanho" type="button" onclick="BTN_qnt(-1,'<?= $produto['idproduto'] ?>', '<?= $produto['produto'] ?>', '<?= $produto['preco'] ?>') ">-</button>
 
                                 <button class="btn btn-outline-success tamanho" type="button" onclick="BTN_qnt(1, '<?= $produto['idproduto'] ?>', '<?= $produto['produto'] ?>', '<?= $produto['preco'] ?>')" >+</button>
@@ -139,7 +149,7 @@
                             </div>
                             <?php 
     if(isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){
-
+        //vendo se a session perfil existe e se ela é igual a 1 
                             ?>
                             <div class="col-md-12 text-center">
                                 <button class="btn btn-secondary"  type="button" onclick="Excluir(<?= $produto['idproduto'] ?>)">Excluir produto</button>
@@ -159,12 +169,15 @@
             <div class="bg-white borda py-4 mb-2" id="card-porcoes" style="display: none">
                 <?php 
                 $porcoes = GetProdutos(5);
+                 //Puxando a funtion GetProdutos que pega os produtos cadastrados na tabela e passando a categoria 5
                 ?>
 
                 <form action="excluir_produto.php" id="form_produto" method="post" name="form_excluir">
                     <input hidden id="idproduto" name="idproduto">
 
-                    <?php while($produto=mysqli_fetch_array($porcoes)){ ?>
+                    <?php while($produto=mysqli_fetch_array($porcoes)){ 
+                     //Enquanto tiver produtos na tabela fazer isso:
+                    ?>
 
                     <div class="row mb-4">
 
@@ -188,7 +201,7 @@
                             </div>
                             <?php 
     if(isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){
-
+        //vendo se a session perfil existe e se ela é igual a 1 
                             ?>
                             <div class="col-md-12 text-center">
                                 <button class="btn btn-secondary"  type="button" onclick="Excluir(<?= $produto['idproduto'] ?>)">Excluir produto</button>
@@ -207,12 +220,15 @@
 
                 <?php 
                 $refri = GetProdutos(1);
+                 //Puxando a funtion GetProdutos que pega os produtos cadastrados na tabela e passando a categoria 1
                 ?>
 
                 <form action="excluir_produto.php" id="form_produto" method="post" name="form_excluir">
                     <input hidden id="idproduto" name="idproduto">
 
-                    <?php while($produto=mysqli_fetch_array($refri)){ ?>
+                    <?php while($produto=mysqli_fetch_array($refri)){ 
+                     //Enquanto tiver produtos na tabela fazer isso:
+                    ?>
 
                     <div class="row mb-4">
 
@@ -226,7 +242,7 @@
                                 <label class="text-center"><?= $produto['descr'] ?> - <b>R$<?= number_format($produto['preco'],2) ?></b></label>
                                 <br>
                             </div>
-                           <div class="col-md-12 text-center py-3">
+                            <div class="col-md-12 text-center py-3">
                                 <button class="btn btn-outline-danger tamanho" type="button" onclick="BTN_qnt(-1,'<?= $produto['idproduto'] ?>', '<?= $produto['produto'] ?>', '<?= $produto['preco'] ?>') ">-</button>
 
                                 <button class="btn btn-outline-success tamanho" type="button" onclick="BTN_qnt(1, '<?= $produto['idproduto'] ?>', '<?= $produto['produto'] ?>', '<?= $produto['preco'] ?>')" >+</button>
@@ -236,7 +252,7 @@
                             </div>
                             <?php 
     if(isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){
-
+        //vendo se a session perfil existe e se ela é igual a 1 
                             ?>
                             <div class="col-md-12 text-center">
                                 <button class="btn btn-secondary"  type="button" onclick="Excluir(<?= $produto['idproduto'] ?>)">Excluir produto</button>
@@ -256,12 +272,15 @@
 
                 <?php 
                 $bebida = GetProdutos(4);
+                 //Puxando a funtion GetProdutos que pega os produtos cadastrados na tabela e passando a categoria 4
                 ?>
 
                 <form action="excluir_produto.php" id="form_produto" method="post" name="form_excluir">
                     <input hidden id="idproduto" name="idproduto">
 
-                    <?php while($produto=mysqli_fetch_array($bebida)){ ?>
+                    <?php while($produto=mysqli_fetch_array($bebida)){ 
+                     //Enquanto tiver produtos na tabela fazer isso:
+                    ?>
 
                     <div class="row mb-4">
 
@@ -275,7 +294,7 @@
                                 <label class="text-center"><?= $produto['descr'] ?> - <b>R$<?= number_format($produto['preco'],2)?></b></label>
                                 <br>
                             </div>
-                           <div class="col-md-12 text-center py-3">
+                            <div class="col-md-12 text-center py-3">
                                 <button class="btn btn-outline-danger tamanho" type="button" onclick="BTN_qnt(-1,'<?= $produto['idproduto'] ?>', '<?= $produto['produto'] ?>', '<?= $produto['preco'] ?>') ">-</button>
 
                                 <button class="btn btn-outline-success tamanho" type="button" onclick="BTN_qnt(1, '<?= $produto['idproduto'] ?>', '<?= $produto['produto'] ?>', '<?= $produto['preco'] ?>')" >+</button>
@@ -284,8 +303,8 @@
 
                             </div>
                             <?php 
-                                if(isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){
-
+    if(isset($_SESSION['perfil']) && $_SESSION['perfil'] == 1){
+        //vendo se a session perfil existe e se ela é igual a 1 
                             ?>
                             <div class="col-md-12 text-center">
                                 <button class="btn btn-secondary"  type="button" onclick="Excluir(<?= $produto['idproduto'] ?>)">Excluir produto</button>
@@ -306,13 +325,15 @@
 
         <!-- Footer do Site -->
 
-        <?php include('Footer.php'); ?>
+        <?php include('Footer.php'); 
+        //Puxando o footer pelo php
+        ?>
 
         <?php 
         if(isset($_SESSION['msg_excluir'])){
             echo "<script>alert('" . $_SESSION['msg_excluir'] . "');</script>";
             unset ($_SESSION['msg_excluir']);
-
+            //Vendo se a session msg_excluir existe, se existir mostrar a mensagem e depois apaga ela da session
         } 
 
         ?>
@@ -321,7 +342,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script>
             $(function () {
-               Get_qtd_produtos();
+                Get_qtd_produtos();
+                //Puxando a function Get_qtd_produtos
             });
         </script>
 
