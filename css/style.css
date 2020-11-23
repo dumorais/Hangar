@@ -1,5 +1,6 @@
 body{
     background-color: black;
+    /* Atribuindo a cor do background para preto */
 }
 .center {
     display: block;
@@ -7,6 +8,7 @@ body{
     margin-right: auto;
     width: 50%;
     text-align: center;
+    /* Deixando a div no meio e com 50% de largura */
 }
 .carousel1{
     margin-top: 10px;
@@ -14,61 +16,70 @@ body{
     height: 30%;
     margin-left: auto;
     margin-right: auto;
-
+    /* deixando o carrossel no meio e diminuindo a largura dele */
 }
 .carousel2{
     margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
+    /* Colocando margin e deixando o carrossel no meio */
 }
 .titulo{
     color: black;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 25px;
+    /* Deixando o título da cor preta e aumentando o tamanho dele */
 }
 .navbar-nav{
     text-align: center;
     width: 93%;
+    /* Deixando o texto dentro do menu no meio e diminuindo a largura do mesmo */
 }
 .nav-item{
-    width: 30%
+    width: 30%;
+    /* Diminuindo a largura do item do menu */
 }
 .img{
     text-align: center;
+    /* Deixando a imagem no centro */
 }
 .borda{
     border-radius: 5px;
+    /* Colocando a borda arrendondada */
 }
 .row{
     clear: both;
+    /* o elemento será movido para baixo para limpar os elementos flutuantes do lado esquerdo e direito. */
 }
-.scroll{
-    height:150px;
-    overflow-y: scroll;
-    min-height: 300px;
-    padding: 10px;
-}
+
 .Google{
     padding-top: 10px;
+    /* Adicionando um paddint em cima da div */
 }
 .Maps{
     width: 60%;
     height: 200px;
+    /* colocando a largura do maps do google para 60% e deixando a altura com 200 pixels */
 }
 .navbar-nav > li.active > a {
     color: #28a745 !important;
+    /* Colocando a cor do menu quando estiver na página verde */
 }
 .tamanho{
     width: 40px ;
+    /* Deixando o width do para 40 pixels */
 }
 .block{
     display: inline-block;
+    /* Deixando os links do menu na horizontal */
 }
 .navbar-dark .navbar-nav .nav-link{
     color: white;
+    /* Colocando o texto do menu para branco */
 }
 .button{
     width: 100%;
+    /*Deixando o button com larguta de 100% */
 }
 .Background{
     background-image: url("../img/fundo.jpg");
@@ -79,6 +90,7 @@ body{
     background-size: cover;
     background-position: center;
     margin: 7px 7px 7px 7px;
+    /* Colocando a imgaem de fundo do header */
 }
 .head{
 
@@ -88,55 +100,46 @@ body{
     color: #dbdddb;
     cursor: pointer;
     text-decoration: none !important;
+    /* Decorando o texto que está em cima da imagem no header */
 }
 .hangar a{
     color: #dbdddb !important;
+    /* Deixando o a do hangar branco */
 }
 .title{
     width: 40%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
+    /* Colocando o título no meio e com 40% de largura */
 }
 .min{
     min-height: 350px;
     position: relative;
+    /* Colocando um mínimo de altura para a div, e deixando com a posição relativa */
 }
 .total{
     position:absolute;                  
     bottom:0;                          
-    right:0;                           
+    right:0;   
+    /* Deixando o total com posição absolota e no lado esquerdo da div */
 }
 .porcao{
     max-width: 135px;
+    /* deixando a porcao com um máximo de largura */
 }
 
 .image{
     opacity: 0.7;
-}
-
-@media only screen and (max-width: 800px) {
-
-
-}
-
-@media only screen and (max-width: 600px) {
-
-    .adm p{
-        font-size: 13px;
-        width: 10%;
-    }
+    /* diminuindo a opacidade da imagem */
 }
 
 
-.linha{
-    background-color:#28a745;
-    height: 7px;
-}
 small a{
     color: #28a745  !important;
     text-decoration: none !important;
     cursor: pointer;
+    /* Deixando o texto branco e deixando o cursor para uma mãozinha quando passar por cima do a */
 }
 .form{
     background-color: white;
@@ -144,33 +147,32 @@ small a{
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+    /* Decorando o form para deixar ele no meio e com o background branco */
 }
 input.form-control{
     border-color: black;
+    /* Deixando a borda do input preta */
 }
 textarea.form-control{
     border-color: black;
+    /* Deixando a borda do textarea preta */
 }
 .form-control:focus {
     border-color:black;
     box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 0px rgba(0, 0, 0, 0);
+    /* Deixando a borda preta quando o input for clicado */
 }
 select.form-control{
     border-color: black;
+    /* Deixando a borda do select preta */
 }
 .adm p{
     font-size: 10px;
     width: 150%;
+    /* Ajustando a tag de adm do menu */
 }
 .name{
     width: 9%;
+    /* Diminuindo a largura do nome do usuário no menu*/
 }
-.background1{
-    opacity: 0.7;
-}
-.margin{
-    margin-left: 0%;
-}
-.tarja{
-    opacity: 0.6;
-}
+

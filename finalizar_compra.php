@@ -17,14 +17,19 @@ $conn = GetMysql();
 //Colocando a conexão com o banco na variável conn
 
 if ($conn->query($sql) === TRUE) {
+    //Executando a query e vendo se ela é verdadeira
     $idpedido = $conn->insert_id; 
+    //Pegando o último id inserido na tabela
     foreach (json_decode($_POST['data']['produtos'], true) as &$produto) {
         $sql = "INSERT INTO pedido_produto (idpedido,idproduto, quantidade, preco) VALUE ('" . $idpedido . "', '" . $produto['id'] . "','" . $produto['qtd'] . "', '" . $produto['preco'] . "')";
+        //Pra todos os produtos que estão no POST insere na tabela pedido_produto
         $conn->query($sql);
+        //Executando o insert
     }
     $_SESSION['idpedido'] = $idpedido;
     $_SESSION['msg'] = "Compra finalizada!";
     //Se for verdadeiro coloca o id do pedido na session e joga uma mensagem na session dizendo que a compra foi finalizada
+    
 } else {
    echo "<script> alert('Erro ao finalizar compra!');</script>";
     //Se não exibe uma mensagem de erro

@@ -106,7 +106,7 @@ require_once 'services.php';
                                 ?>
 
                                 <?php while($func_nome=mysqli_fetch_array($func)){ 
-                                //Enquanto tiver funcionários fazer isso:
+    //Enquanto tiver funcionários fazer isso:
                                 ?>
 
                                 <option value=" <?= $func_nome['idfuncionario']?>"> <?= $func_nome['nome'] ?> </option>
@@ -129,7 +129,7 @@ require_once 'services.php';
                                 ?>
 
                                 <?php while($funcionario=mysqli_fetch_array($perfil)){ 
-                                //Enquanto tiver perfis fazer isso:
+    //Enquanto tiver perfis fazer isso:
 
                                 ?>
 
@@ -171,71 +171,90 @@ require_once 'services.php';
 
 
         $('#CPF').mask("999.999.999-99");
+        //Máscara para o cpf
 
-        function CheckDados(form){
-
+        ffunction CheckForm(form){
+            //Function para checar se a a senha está igual ao confirmar senha
 
             var senha= form_funcionario.Senha.value;
+            //Jogando o que o usuario escreveu no campo da senha numa variável
             var Confirma= form_funcionario.Confirmar.value;
+            //Jogando o que o usuario escreveu no campo de confirmação numa variável
 
             if(senha != Confirma){
                 alert("SENHAS DIFERENTES !");
                 form_funcionario.Senha.focus();
                 return false;
-
+                //Se a senha for diferente do confirmar senha da um alerta de senhas diferentes e coloca o foco no campo da senha e retorna falso para o submit
             }
 
-            if (!Check_CPF(form)){
+            if (!CheckCPF(form)){
                 form_funcionario.CPF.focus();
                 return false;
+                //Se a function de checar o cpf for falsa, coloca o foco no campo do cpf e retorna falso para o submit
             }
 
             return true;
+            //Se tudo estiver checado e correto retorna true para o submit
         }
 
-        function Check_CPF(form){
+        function CheckCPF(form){
+            //Function para checar o cpf
             var cpf = form_funcionario.CPF.value.replace(/([.]|[-])/gi,'');
+            //Váriavel com o que o usuario escreveu no campo do cpf e retirando os "." e "-" do número
             var soma = 0;
             var resto =0;
             var d1 = 0;
             var d2 = 0;
+            //Váriaveis que serão utilizadas
 
             if (cpf == "00000000000" || cpf == "11111111111" || cpf == "22222222222" || cpf == "33333333333" || cpf == "44444444444" || cpf == "55555555555" || cpf == "66666666666" || cpf == "77777777777" || cpf == "88888888888" || cpf == "99999999999"){
                 alert ("CPF inválido!");
                 return false;
+                //Se o cpf for igual a todos os números iguais alerta que o cpf é inválido e retorna false para o submit
             }
 
             for (i=1; i<=9; i++){
                 soma += parseInt(cpf.substring(i-1,i)) * (11-i);
+                //Loop de 1 até 9 onde a variável soma é igual a substring do número do contador i menos 1 até i, vezes 11 menos o contador i
             }
             resto = soma % 11;
+            //Váriavel resto é igual ao resto da divisão da soma por 11
             if ((resto == 0) || (resto == 1)){
                 d1 = 0;
+                //Se o resto for 0 ou 1 então o primeiro dígito depois do "-" do cpf é igual a 0
             }else{
                 d1 = 11 - resto;
+                //Se não o primeiro digito é igual a 11 - o resto
             }
             if (cpf.substring(9,10) != d1){
                 alert("CPF inválido!")
-                return false;
+                return false
+                //Se o primeiro digito depois do "-" for diferente da váriavel d1 então alerta que o cpf é inválido e retorna false para o submit
             }
             soma = 0;
+            //Zerando a váriavel soma
             for (i=1; i<=10; i++){
                 soma += parseInt(cpf.substring(i-1,i)) * (12-i);
+                //Loop de 1 até 10 onde a variável soma é igual a substring do número do contador i menos 1 até i, vezes 12 menos o contador i
             }
             resto = soma % 11;
+            //Váriavel resto é igual ao resto da divisão da soma por 11
             if ((resto == 0) || (resto == 1)){
                 d2 = 0;
+                //Se o resto for 0 ou 1 então o segundo dígito depois do "-" do cpf é igual a 0
             }else{
                 d2 = 11 - resto;
+                //Se não o segundo digito é igual a 11 - o resto
             }
             if (cpf.substring(10,11) != d2){
                 alert ("CPF inválido!");
                 return false;
+                //Se o segundodigito depois do "-" for diferente da váriavel d2 então alerta que o cpf é inválido e retorna false para o submit        
             }
             return true;
+            //Se tudo estiver correto retorna true para o submit
         }
-
-
     </script>
 
 
